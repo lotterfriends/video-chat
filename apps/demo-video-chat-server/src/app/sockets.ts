@@ -70,7 +70,7 @@ export const initSockets = (http: Server) => {
       if (!userService.usernameTaken(username)) {
         socketToUsers.set(socket.id, username);
         const user = userService.storeUser({socketId: socket.id, name: username});
-        io.to(socket.id).emit('me', user);
+        io.to(socket.id).emit('me', {reason: 'register', user});
         io.to(socketToRoom.get(socket.id)).emit("users", ...socketToUsers.values());
       } else {
         io.to(socket.id).emit('register-error', {code: 'USERNAME_TAKEN'});
@@ -81,7 +81,7 @@ export const initSockets = (http: Server) => {
       const refreshedUser = userService.updateUser(user.secret, socket.id);
       if (refreshedUser) {
         socketToUsers.set(socket.id, refreshedUser.name);
-        io.to(socket.id).emit('me', refreshedUser);
+        io.to(socket.id).emit('me', {reason: 'refresh', user: refreshedUser});
         io.to(socketToRoom.get(socket.id)).emit("users", ...socketToUsers.values());
       } else {
         io.to(socket.id).emit('register-error', {code: 'TOKEN_ERROR'});

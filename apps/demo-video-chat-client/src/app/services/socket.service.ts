@@ -5,6 +5,10 @@ import { PeerConnectionClientSignalMessage } from 'ngx-webrtc';
 import { UserStorageService } from './user-storage.service';
 import { Message, MessageType, ServerMessage, ServerUser, User } from '@ngx-webrtc/demo-video-chat-models';
 
+export interface MeResponse {
+  reason: 'refresh' | 'register',
+  user: ServerUser
+}
 
 @Injectable({
   providedIn: 'root',
@@ -142,9 +146,9 @@ export class SocketService {
     });
   }
 
-  onMe(): Observable<ServerUser> {
-    return new Observable<ServerUser>((observer) => {
-      this.socket.on('me', (data: ServerUser) => {
+  onMe(): Observable<MeResponse> {
+    return new Observable<MeResponse>((observer) => {
+      this.socket.on('me', (data: MeResponse) => {
         observer.next(data);
       });
     });

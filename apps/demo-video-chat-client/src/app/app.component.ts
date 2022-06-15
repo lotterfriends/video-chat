@@ -58,9 +58,11 @@ export class AppComponent {
 
     // get me when register/refresh is ready
     this.socketService.onMe().subscribe(async (me) => {
-      this.userStorageService.setCurrentUser(me);
+      this.userStorageService.setCurrentUser(me.user);
       this.servers = await lastValueFrom(this.serverService.getServers());
-      this.shouldJoin();
+      if (me.reason === 'register') {
+        this.shouldJoin();
+      }
     });
 
     // on error start with a fresh register
