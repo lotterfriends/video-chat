@@ -15,6 +15,7 @@ import { VideoChatComponent } from './components/video-chat/video-chat.component
 import { DemoUiComponentsModule } from '@ngx-webrtc/demo-ui-components';
 import { environment } from '../environments/environment';
 import { JoinChatDialogComponent } from './components/join-chat-dialog/join-chat-dialog.component';
+import { AUDIO_WORKLET_PROCESSORS } from '@ng-web-apis/audio';
 
 
 const config: SocketIoConfig = { 
@@ -46,6 +47,11 @@ const config: SocketIoConfig = {
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: AUDIO_WORKLET_PROCESSORS,
+      useValue: 'assets/detect-volume-processor.js',
+      multi: true,
+  },
   ],
   bootstrap: [AppComponent],
   exports: [

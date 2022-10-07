@@ -50,3 +50,5 @@ import 'zone.js'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+import '@ng-web-apis/audio/polyfill';
