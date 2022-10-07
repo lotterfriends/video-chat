@@ -2,6 +2,9 @@
 
 # Class: DeviceService
 
+The DeviceService help you with device interaction (audio and video devices) and can hold a state for devices if you want to implement
+a lobby with device testing.
+
 ## Table of contents
 
 ### Constructors
@@ -36,7 +39,7 @@
 
 #### Defined in
 
-[lib/services/device.service.ts:18](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L18)
+[lib/services/device.service.ts:22](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L22)
 
 ## Properties
 
@@ -46,7 +49,7 @@
 
 #### Defined in
 
-[lib/services/device.service.ts:13](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L13)
+[lib/services/device.service.ts:17](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L17)
 
 ___
 
@@ -56,7 +59,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:16](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L16)
+[lib/services/device.service.ts:20](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L20)
 
 ___
 
@@ -66,7 +69,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:14](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L14)
+[lib/services/device.service.ts:18](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L18)
 
 ___
 
@@ -76,7 +79,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:15](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L15)
+[lib/services/device.service.ts:19](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L19)
 
 ## Methods
 
@@ -99,7 +102,7 @@ Change selected device wit a deviceId and a device type.
 
 #### Defined in
 
-[lib/services/device.service.ts:28](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L28)
+[lib/services/device.service.ts:32](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L32)
 
 ___
 
@@ -124,7 +127,7 @@ a list of devices grouped by `DeviceType`
 
 #### Defined in
 
-[lib/services/device.service.ts:92](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L92)
+[lib/services/device.service.ts:101](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L101)
 
 ___
 
@@ -149,4 +152,4 @@ Check the given device, if it's selected.
 
 #### Defined in
 
-[lib/services/device.service.ts:68](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/services/device.service.ts#L68)
+[lib/services/device.service.ts:77](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L77)

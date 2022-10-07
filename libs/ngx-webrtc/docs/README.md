@@ -43,7 +43,6 @@ import { NgxWebrtcModule } from 'ngx-webrtc';
 })
 export class AppModule { }
 ```
-
 ### Simple Example
 
 > :bulb: Note: 
@@ -156,7 +155,8 @@ It must be ensured that old, already processed messages are not processed a 2nd 
 
 The library provides a CallService in which the status of the connected users is noted. The status contains, for example, whether a user has a camera and this is currently active. To determine a user, a user identifier is passed to the library. 
 
-# Api 
+# Api
+
 ### Enumerations
 
 - [DeviceType](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/DeviceType.md)

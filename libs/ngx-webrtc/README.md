@@ -44,7 +44,6 @@ import { NgxWebrtcModule } from 'ngx-webrtc';
 })
 export class AppModule { }
 ```
-
 ### Simple Example
 
 > :bulb: Note: 
@@ -114,7 +113,6 @@ export class AppComponent {
 
 ```
 
-
 ### Directives
 the directive add there attached node the class enabled/disabled dependent on there state.
 This directives are available:
@@ -159,8 +157,8 @@ It must be ensured that old, already processed messages are not processed a 2nd 
 
 The library provides a CallService in which the status of the connected users is noted. The status contains, for example, whether a user has a camera and this is currently active. To determine a user, a user identifier is passed to the library. 
 
+# Api
 
-# Api 
 ### Enumerations
 
 - [DeviceType](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/DeviceType.md)
@@ -210,7 +208,6 @@ The library provides a CallService in which the status of the connected users is
   - presenting 
   - talking
 
-
 ## Resources and Sources
 - [High Performance Browser Networking](https://hpbn.co/webrtc)
 - [apprtc](https://github.com/webrtc/apprtc)
@@ -222,7 +219,7 @@ The library provides a CallService in which the status of the connected users is
 - [Perfect negotiation](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Perfect_negotiation)
 - ...
 
-
 ## Running unit tests
 
 Run `nx test ngx-webrtc` to execute the unit tests.
+

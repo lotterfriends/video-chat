@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[lib/interfaces/devices-group.ts:5](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/interfaces/devices-group.ts#L5)
+[lib/interfaces/devices-group.ts:5](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/interfaces/devices-group.ts#L5)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[lib/interfaces/devices-group.ts:4](https://github.com/lotterfriends/video-chat/blob/cd8d92e/libs/ngx-webrtc/src/lib/interfaces/devices-group.ts#L4)
+[lib/interfaces/devices-group.ts:4](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/interfaces/devices-group.ts#L4)
