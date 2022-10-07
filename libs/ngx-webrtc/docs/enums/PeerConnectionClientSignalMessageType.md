@@ -4,7 +4,7 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [Answer](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/PeerConnectionClientSignalMessageType.md#answer)
 - [AudioMuted](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/PeerConnectionClientSignalMessageType.md#audiomuted)
@@ -19,122 +19,122 @@
 - [VideoMuted](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/PeerConnectionClientSignalMessageType.md#videomuted)
 - [VideoUnmuted](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/PeerConnectionClientSignalMessageType.md#videounmuted)
 
-## Enumeration members
+## Enumeration Members
 
 ### Answer
 
-• **Answer** = `"answer"`
+• **Answer** = ``"answer"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:4](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L4)
+[lib/enums/peer-connection-client-signal-message-type.ts:4](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L4)
 
 ___
 
 ### AudioMuted
 
-• **AudioMuted** = `"audio-muted"`
+• **AudioMuted** = ``"audio-muted"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:9](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L9)
+[lib/enums/peer-connection-client-signal-message-type.ts:9](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L9)
 
 ___
 
 ### AudioUnmuted
 
-• **AudioUnmuted** = `"audio-unmuted"`
+• **AudioUnmuted** = ``"audio-unmuted"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:10](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L10)
+[lib/enums/peer-connection-client-signal-message-type.ts:10](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L10)
 
 ___
 
 ### Bye
 
-• **Bye** = `"bye"`
+• **Bye** = ``"bye"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:6](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L6)
+[lib/enums/peer-connection-client-signal-message-type.ts:6](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L6)
 
 ___
 
 ### Candidate
 
-• **Candidate** = `"candidate"`
+• **Candidate** = ``"candidate"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:3](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L3)
+[lib/enums/peer-connection-client-signal-message-type.ts:3](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L3)
 
 ___
 
 ### Offer
 
-• **Offer** = `"offer"`
+• **Offer** = ``"offer"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:5](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L5)
+[lib/enums/peer-connection-client-signal-message-type.ts:5](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L5)
 
 ___
 
 ### RequestMuteAudio
 
-• **RequestMuteAudio** = `"request-mute-audio"`
+• **RequestMuteAudio** = ``"request-mute-audio"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:7](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L7)
+[lib/enums/peer-connection-client-signal-message-type.ts:7](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L7)
 
 ___
 
 ### RequestMuteVideo
 
-• **RequestMuteVideo** = `"request-mute-video"`
+• **RequestMuteVideo** = ``"request-mute-video"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:8](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L8)
+[lib/enums/peer-connection-client-signal-message-type.ts:8](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L8)
 
 ___
 
 ### StartShareScreen
 
-• **StartShareScreen** = `"start-share-screen"`
+• **StartShareScreen** = ``"start-share-screen"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:13](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L13)
+[lib/enums/peer-connection-client-signal-message-type.ts:13](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L13)
 
 ___
 
 ### StopShareScreen
 
-• **StopShareScreen** = `"stop-share-screen"`
+• **StopShareScreen** = ``"stop-share-screen"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:14](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L14)
+[lib/enums/peer-connection-client-signal-message-type.ts:14](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L14)
 
 ___
 
 ### VideoMuted
 
-• **VideoMuted** = `"video-muted"`
+• **VideoMuted** = ``"video-muted"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:11](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L11)
+[lib/enums/peer-connection-client-signal-message-type.ts:11](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L11)
 
 ___
 
 ### VideoUnmuted
 
-• **VideoUnmuted** = `"video-unmuted"`
+• **VideoUnmuted** = ``"video-unmuted"``
 
 #### Defined in
 
-[lib/enums/peer-connection-client-signal-message-type.ts:12](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L12)
+[lib/enums/peer-connection-client-signal-message-type.ts:12](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/peer-connection-client-signal-message-type.ts#L12)

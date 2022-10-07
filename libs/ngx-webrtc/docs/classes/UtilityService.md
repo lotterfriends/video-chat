@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[lib/services/utility.service.ts:8](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/utility.service.ts#L8)
+[lib/services/utility.service.ts:8](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/utility.service.ts#L8)

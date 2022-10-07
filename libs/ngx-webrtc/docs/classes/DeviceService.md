@@ -13,14 +13,21 @@ a lobby with device testing.
 
 ### Properties
 
+- [devices](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#devices)
+- [devicesGoups](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#devicesgoups)
 - [preferredAudioInputDevice$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#preferredaudioinputdevice$)
 - [preferredAudioInputDeviceVolume$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#preferredaudioinputdevicevolume$)
 - [preferredAudioOutputDevice$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#preferredaudiooutputdevice$)
 - [preferredVideoInputDevice$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#preferredvideoinputdevice$)
+- [selectedAudioInput$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#selectedaudioinput$)
+- [selectedVideoInput$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#selectedvideoinput$)
 
 ### Methods
 
 - [changeSelectedDevice](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#changeselecteddevice)
+- [detectSelectedDevices](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#detectselecteddevices)
+- [getMediaDevices](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#getmediadevices)
+- [getMediaDevicesGrouped](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#getmediadevicesgrouped)
 - [groupDeviceByKind](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#groupdevicebykind)
 - [isDeviceSelected](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md#isdeviceselected)
 
@@ -39,9 +46,29 @@ a lobby with device testing.
 
 #### Defined in
 
-[lib/services/device.service.ts:22](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L22)
+[lib/services/device.service.ts:26](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L26)
 
 ## Properties
+
+### devices
+
+• `Private` **devices**: `MediaDeviceInfo`[] = `[]`
+
+#### Defined in
+
+[lib/services/device.service.ts:23](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L23)
+
+___
+
+### devicesGoups
+
+• `Private` **devicesGoups**: [`DevicesGroup`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/DevicesGroup.md)[] = `[]`
+
+#### Defined in
+
+[lib/services/device.service.ts:24](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L24)
+
+___
 
 ### preferredAudioInputDevice$
 
@@ -49,7 +76,7 @@ a lobby with device testing.
 
 #### Defined in
 
-[lib/services/device.service.ts:17](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L17)
+[lib/services/device.service.ts:19](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L19)
 
 ___
 
@@ -59,7 +86,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:20](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L20)
+[lib/services/device.service.ts:22](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L22)
 
 ___
 
@@ -69,7 +96,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:18](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L18)
+[lib/services/device.service.ts:20](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L20)
 
 ___
 
@@ -79,7 +106,27 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:19](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L19)
+[lib/services/device.service.ts:21](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L21)
+
+___
+
+### selectedAudioInput$
+
+• **selectedAudioInput$**: `BehaviorSubject`<``null`` \| `MediaDeviceInfo`\>
+
+#### Defined in
+
+[lib/services/device.service.ts:17](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L17)
+
+___
+
+### selectedVideoInput$
+
+• **selectedVideoInput$**: `BehaviorSubject`<``null`` \| `MediaDeviceInfo`\>
+
+#### Defined in
+
+[lib/services/device.service.ts:18](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L18)
 
 ## Methods
 
@@ -102,13 +149,59 @@ Change selected device wit a deviceId and a device type.
 
 #### Defined in
 
-[lib/services/device.service.ts:32](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L32)
+[lib/services/device.service.ts:57](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L57)
+
+___
+
+### detectSelectedDevices
+
+▸ **detectSelectedDevices**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[lib/services/device.service.ts:31](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L31)
+
+___
+
+### getMediaDevices
+
+▸ **getMediaDevices**(): `Promise`<`MediaDeviceInfo`[]\>
+
+get media devices, Attention you need getMedia permissions for this call
+
+#### Returns
+
+`Promise`<`MediaDeviceInfo`[]\>
+
+Promise that resolves to media Devices as array
+
+#### Defined in
+
+[lib/services/device.service.ts:47](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L47)
+
+___
+
+### getMediaDevicesGrouped
+
+▸ **getMediaDevicesGrouped**(): [`DevicesGroup`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/DevicesGroup.md)[]
+
+#### Returns
+
+[`DevicesGroup`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/DevicesGroup.md)[]
+
+#### Defined in
+
+[lib/services/device.service.ts:39](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L39)
 
 ___
 
 ### groupDeviceByKind
 
-▸ **groupDeviceByKind**(`devices`, `omit?`): [`DevicesGroup`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/DevicesGroup.md)[]
+▸ **groupDeviceByKind**(`devices`, `omit?`, `updateSelected?`): [`DevicesGroup`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/DevicesGroup.md)[]
 
 group a list of devices you get by calling `StreamService.getMediaDevices()` by type.
 
@@ -118,6 +211,7 @@ group a list of devices you get by calling `StreamService.getMediaDevices()` by 
 | :------ | :------ | :------ | :------ |
 | `devices` | `MediaDeviceInfo`[] | `undefined` | list of devices you get by calling `StreamService.getMediaDevices()` |
 | `omit` | [`DeviceType`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/DeviceType.md)[] | `[]` | - |
+| `updateSelected` | `boolean` | `false` | - |
 
 #### Returns
 
@@ -127,7 +221,7 @@ a list of devices grouped by `DeviceType`
 
 #### Defined in
 
-[lib/services/device.service.ts:101](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L101)
+[lib/services/device.service.ts:138](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L138)
 
 ___
 
@@ -152,4 +246,4 @@ Check the given device, if it's selected.
 
 #### Defined in
 
-[lib/services/device.service.ts:77](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/services/device.service.ts#L77)
+[lib/services/device.service.ts:114](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/services/device.service.ts#L114)

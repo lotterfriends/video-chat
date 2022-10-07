@@ -4,27 +4,27 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [Audio](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/StreamType.md#audio)
 - [Video](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/StreamType.md#video)
 
-## Enumeration members
+## Enumeration Members
 
 ### Audio
 
-• **Audio** = `"audio"`
+• **Audio** = ``"audio"``
 
 #### Defined in
 
-[lib/enums/stream-type.ts:4](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/stream-type.ts#L4)
+[lib/enums/stream-type.ts:4](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/stream-type.ts#L4)
 
 ___
 
 ### Video
 
-• **Video** = `"video"`
+• **Video** = ``"video"``
 
 #### Defined in
 
-[lib/enums/stream-type.ts:3](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/enums/stream-type.ts#L3)
+[lib/enums/stream-type.ts:3](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/enums/stream-type.ts#L3)

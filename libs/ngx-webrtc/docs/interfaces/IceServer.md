@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[lib/interfaces/ice-server.ts:2](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/interfaces/ice-server.ts#L2)
+[lib/interfaces/ice-server.ts:2](https://github.com/lotterfriends/video-chat/blob/c5292c4/libs/ngx-webrtc/src/lib/interfaces/ice-server.ts#L2)
