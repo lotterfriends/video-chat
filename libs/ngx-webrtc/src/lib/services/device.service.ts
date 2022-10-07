@@ -10,15 +10,40 @@ import { StreamService } from './stream.service';
 })
 export class DeviceService {
 
+  public selectedAudioInput$ = new BehaviorSubject<MediaDeviceInfo | null>(null);
+  public selectedVideoInput$ = new BehaviorSubject<MediaDeviceInfo | null>(null);
   public preferredAudioInputDevice$ = new BehaviorSubject<string | null>(null);
   public preferredAudioOutputDevice$ = new BehaviorSubject<string | null>(null);
   public preferredVideoInputDevice$ = new BehaviorSubject<string | null>(null);
   public preferredAudioInputDeviceVolume$ = new BehaviorSubject<number | null>(null);
+  private devices: MediaDeviceInfo[] = [];
+  private devicesGoups: DevicesGroup[] = [];
 
   constructor(
     private readonly config: NgxWebrtConfiguration,
     private streamService: StreamService,
   ){}
+
+  detectSelectedDevices() {
+    this.getMediaDevices().then(devices => {
+      this.devices = devices;
+      this.devicesGoups = this.groupDeviceByKind(devices, [], true);
+    });
+  }
+
+
+  getMediaDevicesGrouped() {
+    return this.devicesGoups;
+  }
+
+  /**
+   * get media devices, Attention you need getMedia permissions for this call
+   * @returns Promise that resolves to media Devices as array 
+   */
+  public getMediaDevices(): Promise<MediaDeviceInfo[]> {
+    return navigator.mediaDevices.enumerateDevices();
+  }
+  
 
   /**
    * Change selected device wit a deviceId and a device type.
@@ -27,6 +52,12 @@ export class DeviceService {
    */
   changeSelectedDevice(deviceId: string, kind: DeviceType): void {
     if (kind === DeviceType.VideoInput) {
+      if (this.devices && this.devices.length) {
+        const device = this.devices.find(d => d.deviceId === deviceId);
+        if (device) {
+          this.selectedVideoInput$.next(device)
+        }
+      }
       navigator.mediaDevices.getUserMedia({ video: {
         deviceId
       }}).then((stream) => {
@@ -41,6 +72,12 @@ export class DeviceService {
       }, console.error);
     }
     if (kind === DeviceType.AudioInput) {
+      if (this.devices && this.devices.length) {
+        const device = this.devices.find(d => d.deviceId === deviceId);
+        if (device) {
+          this.selectedAudioInput$.next(device)
+        }
+      }
       navigator.mediaDevices.getUserMedia({ audio: {
         deviceId
       }}).then((stream) => {
@@ -89,11 +126,24 @@ export class DeviceService {
    * @param devices list of devices you get by calling `StreamService.getMediaDevices()`
    * @returns a list of devices grouped by `DeviceType`
    */
-  groupDeviceByKind(devices: MediaDeviceInfo[], omit: DeviceType[] = []): DevicesGroup[] {
+  groupDeviceByKind(devices: MediaDeviceInfo[], omit: DeviceType[] = [], updateSelected = false): DevicesGroup[] {
     const devicesGoups: DevicesGroup[] = [];
     const audioInput = devices.filter(d => d.kind === DeviceType.AudioInput);
     const audioOutput = devices.filter(d => d.kind === DeviceType.AudioOutput);
     const videoinput = devices.filter(d => d.kind === DeviceType.VideoInput);
+    if (updateSelected) {
+      devices.forEach(device => {
+        const type = device.kind as DeviceType;
+        if (this.isDeviceSelected(device, type)) {
+          if (type === DeviceType.VideoInput) {
+            this.selectedVideoInput$.next(device);
+          }
+          if (type === DeviceType.AudioInput) {
+            this.selectedAudioInput$.next(device);
+          }
+        }
+      });
+    }
     if (audioInput.length && !omit.includes(DeviceType.AudioInput)) {
       devicesGoups.push({
         kind: DeviceType.AudioInput,

@@ -1,6 +1,5 @@
 import { ElementRef, EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DeviceType } from '../enums';
 import { StreamType } from "../enums/stream-type";
 import { NgxWebrtConfiguration } from '../ngx-webrtc-configuration';
 
@@ -324,7 +323,8 @@ export class StreamService {
 
   /**
    * get media devices, Attention you need getMedia permissions for this call
-   * @returns Promise that resolves to media Devices as array 
+   * @returns Promise that resolves to media Devices as array
+   * @deprecated use DeviceService.getMediaDevices() instead
    */
   public getMediaDevices(): Promise<MediaDeviceInfo[]> {
     return navigator.mediaDevices.enumerateDevices();

@@ -42,7 +42,7 @@ const config: SocketIoConfig = {
     NgxWebrtcModule.forRoot({
       debug: true,
       userIdentifier: 'name'
-    })
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
