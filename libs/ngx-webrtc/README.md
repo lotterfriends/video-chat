@@ -6,13 +6,22 @@
 
 Full featured example client with group video chats, screen sharing and more: https://github.com/lotterfriends/ngx-webrtc/tree/main/apps/demo-video-chat-client
 
+## Requirements
+Only tested with Angular >= 12, minimal rxjs dependency 7.0
+
+- Angular **12/13** Version **0.2.x**
+- Angular **14**  Version **0.3.x**
+
+
+
 ## Installation
+
 
 
 To install this library, run:
 
 ```bash
-$ npm install ngx-webrtc --save
+npm install ngx-webrtc --save
 ```
 
 Add library to your Angular `AppModule`:
