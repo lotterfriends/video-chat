@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'demo-video-chat-client',
+/* eslint-disable */
+export default {
+  displayName: 'simple-local-connection',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/demo-video-chat-client',
+  coverageDirectory: '../../coverage/apps/simple-local-connection',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

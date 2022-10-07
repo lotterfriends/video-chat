@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'demo-ui-components',
+/* eslint-disable */
+export default {
+  displayName: 'demo-video-chat-client',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/libs/demo-ui-components',
+  coverageDirectory: '../../coverage/apps/demo-video-chat-client',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/ngx-webrtc",
   "sourceRoot": "libs/ngx-webrtc/src",
   "prefix": "ngx-webrtc",
   "targets": {
@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ngx-webrtc"],
       "options": {
-        "jestConfig": "libs/ngx-webrtc/jest.config.js",
+        "jestConfig": "libs/ngx-webrtc/jest.config.ts",
         "passWithNoTests": true
       }
     },

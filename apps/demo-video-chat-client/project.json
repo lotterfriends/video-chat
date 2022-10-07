@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/demo-video-chat-client",
   "sourceRoot": "apps/demo-video-chat-client/src",
   "prefix": "ngx-webrtc",
   "targets": {
@@ -93,7 +93,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/demo-video-chat-client"],
       "options": {
-        "jestConfig": "apps/demo-video-chat-client/jest.config.js",
+        "jestConfig": "apps/demo-video-chat-client/jest.config.ts",
         "passWithNoTests": true
       }
     }

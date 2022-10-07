@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'simple-local-connection',
+/* eslint-disable */
+export default {
+  displayName: 'demo-ui-components',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/simple-local-connection',
+  coverageDirectory: '../../coverage/libs/demo-ui-components',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

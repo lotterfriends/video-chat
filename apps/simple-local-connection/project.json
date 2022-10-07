@@ -1,4 +1,5 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "root": "apps/simple-local-connection",
   "sourceRoot": "apps/simple-local-connection/src",
@@ -87,7 +88,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/simple-local-connection"],
       "options": {
-        "jestConfig": "apps/simple-local-connection/jest.config.js",
+        "jestConfig": "apps/simple-local-connection/jest.config.ts",
         "passWithNoTests": true
       }
     }

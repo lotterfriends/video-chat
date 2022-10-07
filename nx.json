@@ -1,10 +1,11 @@
 {
+
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "ngx-webrtc",
   "affected": {
     "defaultBase": "develop"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
   },
   "implicitDependencies": {
     "package.json": {

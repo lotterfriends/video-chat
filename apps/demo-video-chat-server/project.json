@@ -1,16 +1,19 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "root": "apps/demo-video-chat-server",
   "sourceRoot": "apps/demo-video-chat-server/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:build",
+      "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/demo-video-chat-server",
         "main": "apps/demo-video-chat-server/src/main.ts",
         "tsConfig": "apps/demo-video-chat-server/tsconfig.app.json",
-        "assets": ["apps/demo-video-chat-server/src/assets"]
+        "assets": ["apps/demo-video-chat-server/src/assets"],
+        "target": "node",
+        "compiler": "tsc"
       },
       "configurations": {
         "production": {
@@ -27,7 +30,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "executor": "@nrwl/node:node",
       "options": {
         "buildTarget": "demo-video-chat-server:build"
       }
@@ -43,7 +46,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/demo-video-chat-server"],
       "options": {
-        "jestConfig": "apps/demo-video-chat-server/jest.config.js",
+        "jestConfig": "apps/demo-video-chat-server/jest.config.ts",
         "passWithNoTests": true
       }
     }
