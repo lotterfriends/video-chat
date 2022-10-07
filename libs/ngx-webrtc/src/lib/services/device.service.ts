@@ -5,6 +5,10 @@ import { DevicesGroup } from '../interfaces';
 import { NgxWebrtConfiguration } from '../ngx-webrtc-configuration';
 import { StreamService } from './stream.service';
 
+/**
+ * The DeviceService help you with device interaction (audio and video devices) and can hold a state for devices if you want to implement
+ * a lobby with device testing.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -61,12 +65,15 @@ export class DeviceService {
       navigator.mediaDevices.getUserMedia({ video: {
         deviceId
       }}).then((stream) => {
+        
         const track = this.streamService.getVideoTrackForStream(stream);
         if (track) {
           this.streamService.replaceTrack(track);
         }
         const currentStream = this.streamService.getLocalStream();
         if (currentStream && track) {
+          const oldTrack = this.streamService.getVideoTrackForStream(currentStream);
+          oldTrack?.stop();
           this.streamService.replaceTrackInStream(currentStream, track);
         }
       }, console.error);
@@ -87,6 +94,8 @@ export class DeviceService {
         }
         const currentStream = this.streamService.getLocalStream();
         if (currentStream && track) {
+          const oldTrack = this.streamService.getVideoTrackForStream(currentStream);
+          oldTrack?.stop();
           this.streamService.replaceTrackInStream(currentStream, track);
         }
       }, console.error);

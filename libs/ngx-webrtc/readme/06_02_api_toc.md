@@ -1,8 +1,3 @@
-[ngx-webrtc](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/README.md) / Exports
-
-# ngx-webrtc
-
-## Table of contents
 
 ### Enumerations
 

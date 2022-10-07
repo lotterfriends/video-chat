@@ -44,7 +44,6 @@ import { NgxWebrtcModule } from 'ngx-webrtc';
 })
 export class AppModule { }
 ```
-
 ### Simple Example
 
 > :bulb: Note: 
@@ -114,7 +113,6 @@ export class AppComponent {
 
 ```
 
-
 ### Directives
 the directive add there attached node the class enabled/disabled dependent on there state.
 This directives are available:
@@ -159,16 +157,18 @@ It must be ensured that old, already processed messages are not processed a 2nd 
 
 The library provides a CallService in which the status of the connected users is noted. The status contains, for example, whether a user has a camera and this is currently active. To determine a user, a user identifier is passed to the library. 
 
+# Api
 
-# Api 
 ### Enumerations
 
+- [DeviceType](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/DeviceType.md)
 - [PeerConnectionClientSignalMessageType](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/PeerConnectionClientSignalMessageType.md)
 - [StreamType](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/enums/StreamType.md)
 
 ### Classes
 
 - [CallService](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/CallService.md)
+- [DeviceService](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/DeviceService.md)
 - [NgxWebrtConfiguration](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/NgxWebrtConfiguration.md)
 - [NgxWebrtcModule](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/NgxWebrtcModule.md)
 - [PeerConnectionClient](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md)
@@ -179,9 +179,11 @@ The library provides a CallService in which the status of the connected users is
 - [ToggleAudioUserDirective](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/ToggleAudioUserDirective.md)
 - [ToggleVideoSelfDirective](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/ToggleVideoSelfDirective.md)
 - [ToggleVideoUserDirective](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/ToggleVideoUserDirective.md)
+- [UtilityService](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/UtilityService.md)
 
 ### Interfaces
 
+- [DevicesGroup](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/DevicesGroup.md)
 - [FormatObject](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/FormatObject.md)
 - [FormatParams](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/FormatParams.md)
 - [IceServer](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/IceServer.md)
@@ -192,7 +194,6 @@ The library provides a CallService in which the status of the connected users is
 - [StreamTrack](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/StreamTrack.md)
 - [User](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/User.md)
 - [UserInCall](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/UserInCall.md)
-
 # TODO
 - blur / replace background
 - talking detection 
@@ -207,7 +208,6 @@ The library provides a CallService in which the status of the connected users is
   - presenting 
   - talking
 
-
 ## Resources and Sources
 - [High Performance Browser Networking](https://hpbn.co/webrtc)
 - [apprtc](https://github.com/webrtc/apprtc)
@@ -219,7 +219,7 @@ The library provides a CallService in which the status of the connected users is
 - [Perfect negotiation](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Perfect_negotiation)
 - ...
 
-
 ## Running unit tests
 
 Run `nx test ngx-webrtc` to execute the unit tests.
+
