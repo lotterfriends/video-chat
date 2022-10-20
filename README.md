@@ -15,6 +15,9 @@ npm run gen:docs
 cd dist/libs/ngx-webrtc
 npm publish # normal relase
 npm publish --tag next # prerelease
+current_version=$(cat package.json | jq ".version" -r)
+git tag -a $current_version -m "new version $current_version"
+git push origin $current_version
 ```
 
 # Dev
