@@ -9,7 +9,7 @@ import { StreamType } from './enums/stream-type';
 import { UtilityService } from './services/utility.service';
 
 export class PeerConnectionClient {
-
+  private logs: {id: string, type: 'log' | 'error', content: any}[] = [];
   private startTime: number;
   private started = false;
   private isInitiator = false;
@@ -625,15 +625,29 @@ export class PeerConnectionClient {
   }
 
   private log(...args: any[]): void {
+    this.logs.push({
+      type: 'log',
+      id: this.id,
+      content: args ? args : []
+    });
     if (this.settings.debug) {
       console.log(this.id, ...args);
     }
   }
 
   private error(...args: any[]): void {
+    this.logs.push({
+      type: 'error',
+      id: this.id,
+      content: args ? args : []
+    });
     if (this.settings.debug) {
       console.error(this.id, ...args);
     }
+  }
+
+  public resetLog() {
+    this.logs = [];
   }
 
 }
