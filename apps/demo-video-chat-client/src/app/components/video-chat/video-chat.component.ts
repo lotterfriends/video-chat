@@ -39,7 +39,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   private servers: IceServer[] = [];
 
   @Input() room!: string;
-  @ViewChild('localStreamNode', { static: false }) localStreamNode!: ElementRef;
+  @ViewChild('localStreamNode', { static: false }) localStreamNode!: ElementRef<HTMLVideoElement>;
   @ViewChild('remotePeerHolder',  { read: ViewContainerRef }) remotePeerHolder!: ViewContainerRef;
   @ViewChild('holder', { static: false }) public holder!: ConferenceGridHolderComponent;
   @HostListener('window:resize') public onWinResize(): void {
@@ -70,7 +70,12 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     this.log('init');
     // get own user from store
     this.self = this.userStorageService.getCurrentUsername();
+    this.initSocketEvents();
+    this.initStreamEvents();
+    this.initCallEvents();
+  }
 
+  private initSocketEvents() {
     this.socketService.onUserLeftRoom().pipe(
       untilDestroyed(this),
       distinctUntilChanged()
@@ -87,7 +92,8 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
         }
       }
     });
-
+  }
+  private initStreamEvents() {
     // send stream events to peers
 
     this.streamService.localAudioStreamStatusChanged.pipe(
@@ -145,14 +151,16 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
       untilDestroyed(this),
     ).subscribe((stream) => {
       if (stream) {
+        const nodeStream: MediaStream | null = this.localStreamNode.nativeElement.srcObject as MediaStream;
         this.localVideoEnabled = stream.getVideoTracks().length > 0;
-        if (stream.getTracks().length) {
+        if (stream.getTracks().length && stream != nodeStream) {
           this.streamService.setStreamInNode(this.localStreamNode.nativeElement, stream, true, true);
         }
         this.localStream = stream;
       }
     });
-
+  }
+  private initCallEvents() {
     // send call events to peers
 
     this.callService.startShareScreen.pipe(
@@ -169,7 +177,6 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
         e.connection.stopShareScreen();
       });
     });
-
   }
 
   public startCall(servers: IceServer[]) {
