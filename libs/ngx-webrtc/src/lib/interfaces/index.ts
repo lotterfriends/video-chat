@@ -1,5 +1,7 @@
 export * from './devices-group';
 export * from './ice-server';
+export * from './ngx-webrtc-configuration';
+export * from './ngx-webrtc-user';
 export * from './peer-connection-client-signal-message';
 export * from './remote-peer-component-interface';
 export * from './sdp-settings';

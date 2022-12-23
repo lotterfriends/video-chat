@@ -32,9 +32,13 @@ export class PeerConnectionClient {
    */
   public seeNewCandidate$ = new BehaviorSubject<{location: string, candidate: string} | null>(null);
   /**
-   * triggered when a remote stream is added
+   * triggered when a remote stream is added @deprecated use remoteTrackAdded
    */
   public remoteStreamAdded = new EventEmitter<StreamTrack>();
+  /**
+   * triggered when a remote track is added
+   */
+  public remoteTrackAdded = new EventEmitter<StreamTrack>();
   /**
    * triggered when the `RTCSignalingState` is changed inital value is `null`
    */
@@ -93,8 +97,11 @@ export class PeerConnectionClient {
     this.settings = settings;
     this.log(this.settings.peerConnectionConfig);
     this.connection = new RTCPeerConnection(this.settings.peerConnectionConfig);
+    if (this.settings.debug) {
+      (window as any).rtcpc = this.connection;
+    }
     this.connection.onicecandidate = this.onIceCandidate.bind(this);
-    this.connection.ontrack = this.onRemoteStreamAdded.bind(this);
+    this.connection.ontrack = this.onRemoteTrackAdded.bind(this);
     this.connection.onsignalingstatechange = this.onSignalingStateChange.bind(this);
     this.connection.oniceconnectionstatechange = this.onIceConnectionStateChange.bind(this);
     this.connection.onnegotiationneeded = this.onnegotiationneeded.bind(this);
@@ -121,13 +128,19 @@ export class PeerConnectionClient {
     this.isInitiator = true;
     this.started = true;
 
+    
+    return this.createOffer(offerOptions);
+  }
+  
+  public createOffer(offerOptions: RTCOfferOptions = {}): boolean {
+    if (!this.connection) {
+      return false;
+    }
     const constraints: RTCOfferOptions = {...this.DEFAULT_SDP_OFFER_OPTIONS, ...offerOptions};
     this.log('Sending offer to peer, with constraints: \n\'' + JSON.stringify(constraints) + '\'.');
-
     this.connection.createOffer(constraints)
         .then(this.setLocalSdpAndNotify.bind(this))
         .catch(this.onError.bind(this, 'createOffer'));
-
     return true;
   }
 
@@ -345,6 +358,7 @@ export class PeerConnectionClient {
    * @param mediaSteam `MediaStream` with tracks
    */
   public addStream(mediaSteam: MediaStream): void {
+    this.log('addStream', mediaSteam);
     mediaSteam.getTracks().forEach(track => {
       this.addTrack(track);
     });
@@ -454,12 +468,14 @@ export class PeerConnectionClient {
       messageObj = message;
     }
 
-    if ((this.isInitiator && messageObj.type === PeerConnectionClientSignalMessageType.Answer) ||
-        (!this.isInitiator && messageObj.type === PeerConnectionClientSignalMessageType.Offer)) {
+    if (this.connection?.iceGatheringState === 'complete' ||
+      ((this.isInitiator && messageObj.type === PeerConnectionClientSignalMessageType.Answer) ||
+        (!this.isInitiator && messageObj.type === PeerConnectionClientSignalMessageType.Offer))) {
       this.hasRemoteSdp = true;
       // Always process offer before candidates.
       this.messageQueue.unshift(messageObj);
     }
+
     if (messageObj.type === PeerConnectionClientSignalMessageType.Candidate) {
       this.messageQueue.push(messageObj);
     }
@@ -474,14 +490,14 @@ export class PeerConnectionClient {
       return;
     }
     this.handleMessageEvents(message);
-    if (message.type === PeerConnectionClientSignalMessageType.Offer && !this.isInitiator) {
+    if (message.type === PeerConnectionClientSignalMessageType.Offer && (!this.isInitiator || this.connection.iceGatheringState === 'complete')) {
       if (this.connection.signalingState !== 'stable') {
         this.log('ERROR: remote offer received in unexpected state: ' + this.connection.signalingState);
         return;
       }
       this.setRemoteSdp(message);
       this.doAnswer();
-    } else if (message.type === PeerConnectionClientSignalMessageType.Answer && this.isInitiator) {
+    } else if (message.type === PeerConnectionClientSignalMessageType.Answer && (this.isInitiator || this.connection.iceGatheringState === 'complete')) {
       if (this.connection.signalingState !== 'have-local-offer') {
         this.log('ERROR: remote answer received in unexpected state: ' +
               this.connection.signalingState);
@@ -498,7 +514,7 @@ export class PeerConnectionClient {
           .then(this.log.bind(this, 'Remote candidate added successfully.'))
           .catch(this.onError.bind(this, 'addIceCandidate'));
     } else {
-      this.log('WARNING: unexpected message: ' + JSON.stringify(message));
+      this.log(`WARNING: unexpected message: ${message.type}`);
     }
   }
 
@@ -601,8 +617,12 @@ export class PeerConnectionClient {
     }
   }
 
-  private onRemoteStreamAdded(event: RTCTrackEvent): void {
+  private onRemoteTrackAdded(event: RTCTrackEvent): void {
     this.remoteStreamAdded.emit({
+      track: event.track,
+      kind: event.track.kind as StreamType
+    });
+    this.remoteTrackAdded.emit({
       track: event.track,
       kind: event.track.kind as StreamType
     });

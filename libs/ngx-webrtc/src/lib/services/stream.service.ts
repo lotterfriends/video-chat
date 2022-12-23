@@ -1,7 +1,8 @@
 import { ElementRef, EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { StreamType } from "../enums/stream-type";
-import { NgxWebrtConfiguration } from '../ngx-webrtc-configuration';
+import { Configuration } from '../ngx-webrtc-configuration';
+import { PreferencesService } from './preferences.service';
 
 @Injectable({
   providedIn: 'root'
@@ -44,16 +45,19 @@ export class StreamService {
 
   /**
    * Set to `true` when the StreamService.tryGetUserMedia is succefull for video (camera).
+   * @deprecated
    */
   public hasVideo = false;
 
   /**
    * Set to `true` when the StreamService.tryGetUserMedia is succefull for audio (microphone).
+   * @deprecated
    */
   public hasAudio = false;
 
   constructor(
-    private readonly config: NgxWebrtConfiguration
+    private readonly config: Configuration,
+    private preferencesService: PreferencesService,
   ){}
 
 
@@ -120,6 +124,97 @@ export class StreamService {
     if (node?.nativeElement?.srcObject) {
       node.nativeElement.srcObject = new MediaStream();
     }
+  }
+
+  public toggleLocalTrack(type: StreamType): Promise<MediaStream> {
+    if (this.config.debug) {
+      console.log('toggleLocalTrack()', type);
+    }
+    const stream = this.getLocalStream();
+    if (stream) {
+      const tracks = type === StreamType.Audio ? stream.getAudioTracks() : stream.getVideoTracks();
+      if (tracks.length) {
+        return this.disableLocalTrack(type);
+      } else {
+        return this.enableLocalTrack(type);
+      }
+    } else {
+      return Promise.reject(new Error('no stream'))
+    }
+
+  }
+
+  public enableLocalTrack(type: StreamType): Promise<MediaStream> {
+    if (this.config.debug) {
+      console.log('enableLocalTrack()', type);
+    }
+    return new Promise<MediaStream>((resolve, rejects) => {
+      const stream = this.getLocalStream();
+      if (stream) {
+        if (type === StreamType.Video) {
+          navigator.mediaDevices.getUserMedia({
+            video: this.preferencesService.getVideoConstraintWithPreferences(),
+          }).then(stream => {
+            const localStream = this.localStream$.getValue() || new MediaStream();
+            stream.getVideoTracks().forEach(track => {
+              localStream.addTrack(track);
+              this.localVideoStreamStatusChanged.emit(true);
+              this.replaceTrack(track);
+            });
+            this.localStream$.next(localStream);
+            this.localStreamStatusChanged.emit(localStream);
+            resolve(localStream);
+          }, (error) => {
+            rejects(error);
+          });
+        }
+        if (type === StreamType.Audio) {
+          navigator.mediaDevices.getUserMedia({
+            audio: this.preferencesService.getAudioConstraintWithPreferences(),
+          }).then(stream => {
+            const localStream = this.localStream$.getValue() || new MediaStream();
+            stream.getAudioTracks().forEach(track => {
+              localStream.addTrack(track);
+              this.localAudioStreamStatusChanged.emit(true);
+            });
+            this.localStream$.next(localStream);
+            this.localStreamStatusChanged.emit(localStream);
+            resolve(localStream);
+          }, (error) => {
+            rejects(error);
+          });
+        }
+      } else {
+        rejects(new Error('no stream'));
+      }
+    });
+  }
+
+  public disableLocalTrack(type: StreamType): Promise<MediaStream> {
+    if (this.config.debug) {
+      console.log('disableLocalTrack()', type);
+    }
+    return new Promise((resolve, rejects) => {
+      const stream = this.getLocalStream();
+      if (stream) {
+        const tracks = type === StreamType.Audio ? stream.getAudioTracks() : stream.getVideoTracks();
+        tracks.forEach(track => {
+          track.enabled = false;
+          track.stop();
+          stream.removeTrack(track)
+        });
+        if (type === StreamType.Video) {
+          this.localVideoStreamStatusChanged.emit(false);
+        } else {
+          this.localAudioStreamStatusChanged.emit(false);
+        }
+        this.localStreamStatusChanged.emit(stream);
+        this.localStream$.next(stream);
+        return resolve(stream);
+      } else {
+        rejects(new Error('no stream'));
+      }
+    });
   }
 
   /**
@@ -356,6 +451,7 @@ export class StreamService {
    *                         }
    *                         ```
    * @returns Promise that resilve to a stream matching the constraint
+   * @deprecated use DeviceService.tryGetUserMedia() instead
    */
   public tryGetUserMedia(mediaConstraints?: MediaStreamConstraints): Promise<MediaStream> {
     // reset state

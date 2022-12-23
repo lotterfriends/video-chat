@@ -5,8 +5,11 @@
   </ngx-webrtc-conference-grid-holder>
 </div>
 
-<div class="video-chat-self-holder" [class.hide]="!localVideoEnabled">
-  <video id="localStreamNode" class="mirror" playsinline muted #localStreamNode></video>
+<div class="video-chat-self-holder">
+  <div [class.hide]="localVideoEnabled" class="no-video" *ngIf="self">
+    <ngx-webrtc-avatar  [size]="pclients.length ? 'small' : 'large'" [name]="self"></ngx-webrtc-avatar>
+  </div>
+  <video [class.hide]="!localVideoEnabled" id="localStreamNode" class="mirror" playsinline muted #localStreamNode></video>
 </div>
 <ng-content></ng-content>
 <ngx-webrtc-video-chat-settings-dialog></ngx-webrtc-video-chat-settings-dialog>

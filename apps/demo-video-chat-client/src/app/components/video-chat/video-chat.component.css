@@ -25,6 +25,18 @@ video {
   height: 150px;
 }
 
+.video-chat-self-holder .no-video {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 200px;
+  border: 1px solid #323232;
+  background-color: #141414;
+}
+
 .video-chat-self-holder video {
   height: 100%;
   object-fit: cover;
@@ -49,6 +61,10 @@ video {
   overflow: hidden;
 }
 
+.video-chat-remote.remote-peer-x + .video-chat-self-holder .no-video {
+  border-top-left-radius: 10px;
+}
+
 .video-chat-remote {
   display: flex;
   flex: 1;
@@ -58,6 +74,14 @@ video {
   max-width: 100%;
 }
 
+.video-chat-remote.remote-peer-1 {
+  border-radius: 0;
+}
+
+.video-chat-remote.remote-peer-1 ::ng-deep ngx-webrtc-remote-peer video {
+  border-radius: 0;
+}
+
 .hide {
-  display: none;
+  display: none !important;
 }

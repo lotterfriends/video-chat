@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { StreamService } from 'ngx-webrtc';
 import { UiService, ViewMode } from '../../../services/ui.service';
 
 @UntilDestroy()
@@ -22,6 +23,7 @@ export class ControlsComponent implements OnInit {
 
   constructor(
     private uiService: UiService,
+    private streamService: StreamService, 
     private cdr: ChangeDetectorRef
   ) { }
 
@@ -34,6 +36,14 @@ export class ControlsComponent implements OnInit {
       this.cdr.detectChanges();
     });
 
+    this.streamService.localAudioStreamStatusChanged.subscribe(isAudioEnabled => {
+      console.log('isAudioEnabled', isAudioEnabled);
+    })
+
+  }
+
+  onToggleFailed(error: Error) {
+    alert(error);
   }
 
   toggleUserlist(): void {

@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { UntilDestroy } from '@ngneat/until-destroy';
-import { DeviceService, DevicesGroup, DeviceType, StreamService } from 'ngx-webrtc';
+import { DeviceService, DevicesGroup, DeviceType, PreferencesService, StreamService } from 'ngx-webrtc';
 import { UiService } from '../../services/ui.service';
 
 @UntilDestroy()
@@ -26,6 +26,7 @@ export class JoinChatDialogComponent implements OnInit, OnDestroy {
     private readonly uiService: UiService,
     private readonly streamService: StreamService,
     private readonly deviceService: DeviceService,
+    private preferencesService: PreferencesService,
   ) { }
 
   ngOnDestroy(): void {
@@ -35,7 +36,7 @@ export class JoinChatDialogComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initDeviceList();
 
-    this.streamService.tryGetUserMedia().then(stream => {
+    this.deviceService.tryGetUserMedia().then(stream => {
       this.stream = stream;
       this.streamService.setStreamInNode(this.videoStreamNode.nativeElement, this.stream, false);
     })
@@ -55,7 +56,7 @@ export class JoinChatDialogComponent implements OnInit, OnDestroy {
   changeSelectedDevice(event: Event, kind: DeviceType): void {
     const deviceId = (event.target as HTMLSelectElement).value;
     if (kind === DeviceType.VideoInput) {
-      this.deviceService.preferredVideoInputDevice$.next(deviceId);
+      this.preferencesService.setPreferredVideoInputDevice(deviceId);
       navigator.mediaDevices.getUserMedia({ video: {
         deviceId
       }}).then((stream) => {
@@ -66,7 +67,7 @@ export class JoinChatDialogComponent implements OnInit, OnDestroy {
       });
     }
     if (kind === DeviceType.AudioInput) {
-      this.deviceService.preferredAudioInputDevice$.next(deviceId);
+      this.preferencesService.setPreferredAudioInputDevice(deviceId);
       navigator.mediaDevices.getUserMedia({ audio: {
         deviceId
       }}).then((stream) => {
@@ -81,7 +82,7 @@ export class JoinChatDialogComponent implements OnInit, OnDestroy {
   changeVolume($event: Event): void {
     const volume = parseInt(($event.target as HTMLInputElement).value, 10) / 100;
     (this.videoStreamNode.nativeElement as HTMLVideoElement).volume = volume;
-    this.deviceService.preferredAudioInputDeviceVolume$.next(volume);
+    this.preferencesService.setPreferredAudioInputDeviceVolume(volume);
   }
 
   joinYes() {

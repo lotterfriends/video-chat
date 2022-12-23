@@ -6,7 +6,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ConferenceGridHolderComponent } from '@ngx-webrtc/demo-ui-components';
 import { MessageType, User } from '@ngx-webrtc/demo-video-chat-models';
 import {
-  CallService, DeviceService, IceServer, PeerConnectionClient, PeerConnectionClientSignalMessage, StreamService, StreamType
+  CallService, DeviceService, IceServer, PeerConnectionClient, PeerConnectionClientSignalMessage, PreferencesService, StreamService, StreamType
 } from 'ngx-webrtc';
 import { distinctUntilChanged, filter, first, map } from 'rxjs/operators';
 import { MessagesService } from '../../services/messages.service';
@@ -32,7 +32,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   private localStream: MediaStream | null = null;
   public localVideoEnabled = false;
   private isInitiator = false;
-  private self: string | null = null;
+  public self: string | null = null;
   private users: User[] = [];
   private identifier: (keyof User) = this.callService.getUserIdentifier();
   private servers: IceServer[] = [];
@@ -55,7 +55,8 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     private streamService: StreamService,
     private callService: CallService,
     private uiService: UiService,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private preferencesService: PreferencesService,
   ) {}
 
 
@@ -100,13 +101,16 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     this.streamService.localVideoStreamStatusChanged.pipe(
       untilDestroyed(this),
       ).subscribe(localVideoEnabled => {
+        console.log('localVideoStreamStatusChanged', localVideoEnabled);
         this.localVideoEnabled = localVideoEnabled;
         this.pclients.forEach(e => {
           localVideoEnabled ? e.connection.videoUnmuted() : e.connection.videoMuted();
         });
     });
 
-    // change audio output
+    // change audio output, bad browser support
+    // only blink engine (chrome, edge, opera)
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setSinkId
     this.streamService.audioOutput$.pipe(
     untilDestroyed(this),
       filter(e => e !== null)
@@ -122,11 +126,30 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     ).subscribe((track) => {
       this.log('replaceTrack', track);
       if (track) {
-        this.pclients.forEach(async client => {
-          client.connection.replaceTrack(track);
-        });
+        if (track.kind === StreamType.Audio && this.localStream?.getAudioTracks().length || 
+          track.kind === StreamType.Video && this.localStream?.getVideoTracks().length) {
+            this.pclients.forEach(async client => {
+              client.connection.replaceTrack(track);
+            });
+          } else {
+            this.pclients.forEach(async client => {
+              client.connection.addTrack(track);
+            });
+        }
       } else {
         this.log('WARNING: track is null');
+      }
+    });
+
+    this.streamService.localStream$.pipe(
+      untilDestroyed(this),
+    ).subscribe((stream) => {
+      if (stream) {
+        this.localVideoEnabled = stream.getVideoTracks().length > 0;
+        if (stream.getTracks().length) {
+          this.streamService.setStreamInNode(this.localStreamNode.nativeElement, stream, true, true);
+        }
+        this.localStream = stream;
       }
     });
 
@@ -149,44 +172,76 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
   }
 
-  public startCall(servers: IceServer[]): void {
+  public startCall(servers: IceServer[]) {
     this.log('startCall');
     this.servers = servers;
-    this.getMediaAndStart();
+    this.tryGetMedia();
   }
 
-  private getMediaAndStart(): void {
-    const preferredVideoInputDevice = this.deviceService.preferredVideoInputDevice$.getValue();
-    const preferredAudioInputDevice = this.deviceService.preferredAudioInputDevice$.getValue();
-    const preferredAudioInputDeviceVolume = this.deviceService.preferredAudioInputDeviceVolume$.getValue();
-    let audioConstraint: boolean | { deviceId?: string, volume?: number }  = true;
-    if (preferredAudioInputDevice || preferredAudioInputDeviceVolume !== null) {
-      if (preferredAudioInputDevice && preferredAudioInputDeviceVolume !== null) {
-        audioConstraint = {
-          deviceId: preferredAudioInputDevice,
-          volume: preferredAudioInputDeviceVolume
-        }
-      } else if (preferredAudioInputDevice) {
-        audioConstraint = {
-          deviceId: preferredAudioInputDevice
-        }
-      } else if (preferredAudioInputDeviceVolume) {
-        audioConstraint = {
-          volume: preferredAudioInputDeviceVolume
-        }
-      }
+  private findFirstSuccessful<T>(promises:(() => Promise<T>)[], onSuccess: (arg0: T) => void, onNotFound: () => void) {
+    const currentPromise = promises.shift();
+    if (currentPromise) {
+      currentPromise().then(onSuccess, () => {
+        this.findFirstSuccessful(promises, onSuccess, onNotFound);
+      });
+    } else {
+      onNotFound();
     }
-    this.streamService.tryGetUserMedia({
-      video: preferredVideoInputDevice ? { deviceId: preferredVideoInputDevice } : true,
-      audio: audioConstraint
-    }).then(this.onLocalStream.bind(this), this.onNoStream.bind(this));
+  }
+
+  private tryGetMedia() {
+    this.log('tryGetMedia');
+
+    const tryChain: (() => Promise<MediaStream>)[] = [
+      this.tryGetMediaWithPreferences.bind(this),
+      this.tryGetMediaDefault.bind(this),
+      this.tryGetMediaAudioOnly.bind(this)
+    ];
+
+    this.findFirstSuccessful<MediaStream>(tryChain, this.onLocalStream.bind(this), this.onNoStream.bind(this));
+  }
+  
+  private tryGetMediaWithPreferences() {
+    this.log('tryGetMediaWithPreferences');
+    const preferencesConstrains: MediaStreamConstraints = {
+      video: this.preferencesService.getVideoConstraintWithPreferences(),
+      audio: this.preferencesService.getAudioConstraintWithPreferences(),
+    };
+    return this.deviceService.tryGetUserMedia(preferencesConstrains);
+  }
+  
+  private tryGetMediaDefault() {
+    this.log('tryGetMediaDefault');
+    // this.preferencesService.resetPreferences();
+    return this.deviceService.tryGetUserMedia({
+      video: true,
+      audio: true
+    });
+  }
+
+  private tryGetMediaAudioOnly() { 
+    this.log('tryGetMediaAudioOnly');
+    return this.deviceService.tryGetUserMedia({
+      video: false,
+      audio: true
+    });
+  }
+
+  private getMediaAndStart(constraints?: MediaStreamConstraints): void {
+    this.log('getMediaAndStart', constraints);
+    this.deviceService.tryGetUserMedia(constraints).then(this.onLocalStream.bind(this), () => {
+      if (constraints) {
+        this.preferencesService.resetPreferences();
+        this.getMediaAndStart();
+      } else {
+        this.onNoStream();
+      }
+    });
   }
 
   private onLocalStream(stream: MediaStream): void {
-    this.localVideoEnabled = true;
-    this.localStream = stream;
+    this.log('onLocalStream', stream);
     this.streamService.setLocalStream(stream);
-    this.streamService.setStreamInNode(this.localStreamNode.nativeElement, stream, true, true);
 
     this.log('joinedRoom');
 
@@ -200,6 +255,12 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   }
 
   private onNoStream(): void {
+    this.log('onNoStream');
+    const emptyStream = new MediaStream();
+    this.streamService.setLocalStream(emptyStream);
+
+    this.log('joinedRoom');
+
     this.socketService.onUsersJoinedRoom().pipe(
       untilDestroyed(this),
       distinctUntilChanged()
@@ -276,6 +337,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
     const cert = await this.callService.createCertifcate();
     const pclient = await this.callService.createPeerClient({
+      // debug: this.debug,
       peerConnectionConfig: {
         iceServers: this.servers,
         certificates: [cert],
@@ -293,30 +355,30 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
       this.socketService.sendSignalMessage(m, user.name);
     });
 
-    pclient.remoteStreamAdded.pipe(
+    pclient.remoteTrackAdded.pipe(
       untilDestroyed(this),
-    ).subscribe(stream => {
-      this.log('remoteStreamAdded', user);
-      if (stream.kind === StreamType.Audio) {
-        this.streamService.setStreamInNode(component.instance.audioStreamNode.nativeElement, stream.track, false);
+    ).subscribe(track => {
+      this.log('remoteTrackAdded', user, track.kind);
+      if (track.kind === StreamType.Audio) {
+        this.streamService.setStreamInNode(component.instance.audioStreamNode.nativeElement, track.track, false);
         this.callService.userHasMic(user);
       }
-      if (stream.kind === StreamType.Video) {
-        this.streamService.setStreamInNode(component.instance.videoStreamNode.nativeElement, stream.track);
+      if (track.kind === StreamType.Video) {
+        this.streamService.setStreamInNode(component.instance.videoStreamNode.nativeElement, track.track);
         this.callService.userHasCam(user);
       }
     });
 
-    if (this.localStream) {
+    if (this.localStream && this.localStream.getTracks().length) {
       pclient.negotiationNeededTriggered.pipe(
-        untilDestroyed(this)
+        first()
       ).subscribe(() => {
         this.startPeerConnection(pclient, user);
       });
     } else {
       this.startPeerConnection(pclient, user);
     }
-
+    
     pclient.muteMyAudio.pipe(untilDestroyed(this)).subscribe(() => {
       this.streamService.muteLocalAudioStream();
     });
@@ -364,6 +426,12 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
         pclient.startAsCallee(messages);
       });
     }
+
+    pclient.negotiationNeededTriggered.pipe(
+      untilDestroyed(this)
+    ).subscribe(() => {
+      pclient.createOffer();
+    });
   }
 
   public stopCall(): void {
