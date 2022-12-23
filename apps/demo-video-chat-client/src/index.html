@@ -9,5 +9,11 @@
   </head>
   <body>
     <ngx-webrtc-root></ngx-webrtc-root>
+    <script>
+      window.platform = {
+        isFirefox: typeof InstallTrigger !== 'undefined',
+        isSafari: /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification)
+      }
+    </script>
   </body>
 </html>
