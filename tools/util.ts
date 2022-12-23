@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 
-export async function execCommand(command, settings?: {showStdout: boolean}) {
+export async function execCommand(command: string, settings?: {showStdout: boolean}) {
   return new Promise((resolve, reject) => {
     const commandArray = command.split(' ');
     const commandExec = spawn(
