@@ -54,7 +54,7 @@ export class UiService {
       case DeviceType.AudioInput:
         return 'Microphone';
       case DeviceType.AudioOutput:
-        return 'Audio Output';
+        return 'Speaker';
       case DeviceType.VideoInput:
         return 'Camera';
     }
