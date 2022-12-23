@@ -13,6 +13,7 @@ import { MessagesService } from '../../services/messages.service';
 import { SocketService } from '../../services/socket.service';
 import { UiService, ViewMode } from '../../services/ui.service';
 import { UserStorageService } from '../../services/user-storage.service';
+import { VideoChatService } from '../../services/video-chat.service';
 import { RemotePeerComponent } from './remote-peer/remote-peer.component';
 
 /**
@@ -56,7 +57,6 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     private callService: CallService,
     private uiService: UiService,
     private deviceService: DeviceService,
-    private preferencesService: PreferencesService,
   ) {}
 
 
@@ -175,68 +175,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   public startCall(servers: IceServer[]) {
     this.log('startCall');
     this.servers = servers;
-    this.tryGetMedia();
-  }
-
-  private findFirstSuccessful<T>(promises:(() => Promise<T>)[], onSuccess: (arg0: T) => void, onNotFound: () => void) {
-    const currentPromise = promises.shift();
-    if (currentPromise) {
-      currentPromise().then(onSuccess, () => {
-        this.findFirstSuccessful(promises, onSuccess, onNotFound);
-      });
-    } else {
-      onNotFound();
-    }
-  }
-
-  private tryGetMedia() {
-    this.log('tryGetMedia');
-
-    const tryChain: (() => Promise<MediaStream>)[] = [
-      this.tryGetMediaWithPreferences.bind(this),
-      this.tryGetMediaDefault.bind(this),
-      this.tryGetMediaAudioOnly.bind(this)
-    ];
-
-    this.findFirstSuccessful<MediaStream>(tryChain, this.onLocalStream.bind(this), this.onNoStream.bind(this));
-  }
-  
-  private tryGetMediaWithPreferences() {
-    this.log('tryGetMediaWithPreferences');
-    const preferencesConstrains: MediaStreamConstraints = {
-      video: this.preferencesService.getVideoConstraintWithPreferences(),
-      audio: this.preferencesService.getAudioConstraintWithPreferences(),
-    };
-    return this.deviceService.tryGetUserMedia(preferencesConstrains);
-  }
-  
-  private tryGetMediaDefault() {
-    this.log('tryGetMediaDefault');
-    // this.preferencesService.resetPreferences();
-    return this.deviceService.tryGetUserMedia({
-      video: true,
-      audio: true
-    });
-  }
-
-  private tryGetMediaAudioOnly() { 
-    this.log('tryGetMediaAudioOnly');
-    return this.deviceService.tryGetUserMedia({
-      video: false,
-      audio: true
-    });
-  }
-
-  private getMediaAndStart(constraints?: MediaStreamConstraints): void {
-    this.log('getMediaAndStart', constraints);
-    this.deviceService.tryGetUserMedia(constraints).then(this.onLocalStream.bind(this), () => {
-      if (constraints) {
-        this.preferencesService.resetPreferences();
-        this.getMediaAndStart();
-      } else {
-        this.onNoStream();
-      }
-    });
+    this.deviceService.tryGetMedia(this.onLocalStream.bind(this), this.onNoStream.bind(this));
   }
 
   private onLocalStream(stream: MediaStream): void {
