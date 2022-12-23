@@ -1,11 +1,35 @@
 .avatar {
   display: inline-block;
-  width: 150px;
-  height: 150px;
   border-radius: 50%;
-  font-size: 6em;
   box-shadow: 0 0 10px #000, 0 0 40px rgb(70 68 68 / 59%) inset;
   text-transform: uppercase;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.avatar.large {
+  font-size: 6em;
+  width: 150px;
+  height: 150px;
+}
+
+.avatar.medium {
+  font-size: 4em;
+  width: 100px;
+  height: 100px;
+}
+
+.avatar.small {
+  font-size: 2em;
+  width: 75px;
+  height: 75px;
+}
+
+.avatar.mini {
+  font-size: 1em;
+  width: 25px;
+  height: 25px;
 }
 
 p {
