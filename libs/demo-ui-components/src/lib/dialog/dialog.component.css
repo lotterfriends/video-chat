@@ -30,6 +30,11 @@
   cursor: pointer;
 }
 
+.dialog .dialog-close svg {
+  width: 24px;
+  height: 24px;
+}
+
 .dialog .dialog-box {
   width: 300px;
   max-width: 90%;
