@@ -21,4 +21,5 @@ export * from './lib/interfaces';
 export * from './lib/services/call.service';
 export * from './lib/services/stream.service';
 export * from './lib/services/device.service';
+export * from './lib/services/preferences.service';
 export * from './lib/services/utility.service';

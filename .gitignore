@@ -42,3 +42,4 @@ Thumbs.db
 .angular
 apps/demo-video-chat-server/.env
 work/
+.vscode/settings.json

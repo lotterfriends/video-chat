@@ -45,14 +45,14 @@ export class UserlistComponent implements OnInit {
       }
       if (stream instanceof MediaStream && stream.getAudioTracks().length) {
         const track = this.streamService.getAudioTrackForStream(stream);
-        this.selfAudioMuted = !track?.enabled;
+        this.selfAudioMuted = !track || !track?.enabled;
       }
       if (stream instanceof MediaStreamTrack && stream.kind === StreamType.Video) {
-        this.selfVideoMuted = !stream.enabled;
+        this.selfVideoMuted = !stream || !stream.enabled;
       }
       if (stream instanceof MediaStream && stream.getVideoTracks().length) {
         const track = this.streamService.getVideoTrackForStream(stream);
-        this.selfVideoMuted = !track?.enabled;
+        this.selfVideoMuted = !track || !track?.enabled;
       }
       this.cdr.detectChanges();
     }

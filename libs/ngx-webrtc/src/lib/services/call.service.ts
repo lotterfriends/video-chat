@@ -5,7 +5,7 @@ import { RemotePeerComponentInterface } from '../interfaces/remote-peer-componen
 import { PeerConnectionClient } from '../peer-connection-client';
 import { PeerConnectionClientSettings } from "../interfaces/peer-connection-client-settings";
 import { UserInCall } from '../interfaces/user-in-call';
-import { NgxWebrtConfiguration } from '../ngx-webrtc-configuration';
+import { Configuration } from '../ngx-webrtc-configuration';
 import { IceServer } from '../interfaces/ice-server';
 
 /**
@@ -17,8 +17,9 @@ import { IceServer } from '../interfaces/ice-server';
 })
 export class CallService {
 
+  private storage: 'localStorage' | 'sessionStorage' = 'sessionStorage';
   constructor(
-    private readonly config: NgxWebrtConfiguration
+    private readonly config: Configuration
   ){}
 
 
@@ -75,7 +76,7 @@ export class CallService {
   public updateSince(): void {
     this.since = Date.now();
     // TODO: make storage customizable via provider
-    sessionStorage.setItem(this.storage_key_since, `${this.since}`);
+    window[this.storage].setItem(this.storage_key_since, `${this.since}`);
   }
 
   /**
@@ -83,9 +84,9 @@ export class CallService {
    * @returns Timestamp
    */
   public getSince(): number {
-    const sessionStorageSince: string | null = sessionStorage.getItem(this.storage_key_since);
-    if (!this.since && sessionStorageSince && sessionStorageSince !== null) {
-      this.since = parseInt(sessionStorageSince, 10);
+    const storageSince: string | null = window[this.storage].getItem(this.storage_key_since);
+    if (!this.since && storageSince && storageSince !== null) {
+      this.since = parseInt(storageSince, 10);
     }
     return this.since;
   }
@@ -236,7 +237,7 @@ export class CallService {
   }
 
   /**
-   * 
+   *
    * @param user User with `userIdentifier`
    * @returns User in state
    */

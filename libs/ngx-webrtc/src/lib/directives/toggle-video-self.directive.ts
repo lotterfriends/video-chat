@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Directive, HostBinding, HostListener, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Directive, EventEmitter, HostBinding, HostListener, OnDestroy, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { StreamType } from "../enums/stream-type";
 import { CallService } from '../services/call.service';
@@ -14,6 +14,7 @@ export class ToggleVideoSelfDirective implements OnDestroy {
 
   private callStartedSubscription$: Subscription | null = null;
   private localStreamStatusChangedSubscription$: Subscription | null = null;
+  @Output() toggleMuteFailed: EventEmitter<Error> = new EventEmitter();
   @HostBinding('class.disabled') public isDisabled = true;
   @HostBinding('class.enabled') public isEnabled = false;
   @HostListener('click', ['$event']) onClick(): void{
@@ -49,22 +50,22 @@ export class ToggleVideoSelfDirective implements OnDestroy {
       if (stream instanceof MediaStreamTrack && stream.kind === StreamType.Video) {
         this.updateStatusWithTrack(stream);
       }
-      if (stream instanceof MediaStream && stream.getVideoTracks().length) {
+      if (stream instanceof MediaStream) {
         const track = this.streamService.getVideoTrackForStream(stream);
-        if (track) {
-          this.updateStatusWithTrack(track);
-        }
+        this.updateStatusWithTrack(track);
       }
     }
   }
 
   toggleMute(): void {
-    this.streamService.toggleMuteLocalVideoStream();
+    this.streamService.toggleLocalTrack(StreamType.Video).catch(error => {
+      this.toggleMuteFailed.emit(error);
+    });
   }
 
-  private updateStatusWithTrack(track: MediaStreamTrack): void {
-    this.isEnabled = track.enabled;
-    this.isDisabled = !track.enabled;
+  private updateStatusWithTrack(track: MediaStreamTrack | null): void {
+    this.isEnabled = track && track.enabled ? true : false;
+    this.isDisabled = !track || !track.enabled;
     this.cdr.detectChanges();
   }
 }

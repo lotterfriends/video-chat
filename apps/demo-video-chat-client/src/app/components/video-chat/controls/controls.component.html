@@ -1,10 +1,10 @@
 
-<button ngxWebrtcToggleAudioSelf class="toggle-audio">
+<button ngxWebrtcToggleAudioSelf (toggleMuteFailed)="onToggleFailed($event)" class="toggle-audio">
   <span class="on-enabled">Mute Audio</span>
   <span class="on-disabled">Unmute Audio</span>
 </button>
 
-<button ngxWebrtcToggleVideoSelf class="toggle-video">
+<button ngxWebrtcToggleVideoSelf (toggleMuteFailed)="onToggleFailed($event)" class="toggle-video">
   <span class="on-enabled">Mute Video</span>
   <span class="on-disabled">Unmute Video</span>
 </button>

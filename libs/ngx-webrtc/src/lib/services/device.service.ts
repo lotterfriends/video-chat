@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { DeviceType } from '../enums';
 import { DevicesGroup } from '../interfaces';
-import { NgxWebrtConfiguration } from '../ngx-webrtc-configuration';
+import { Configuration } from '../ngx-webrtc-configuration';
+import { PreferencesService } from './preferences.service';
 import { StreamService } from './stream.service';
 
 /**
@@ -12,32 +13,53 @@ import { StreamService } from './stream.service';
 @Injectable({
   providedIn: 'root'
 })
-export class DeviceService {
+export class DeviceService implements OnDestroy {
 
+  private storage: 'localStorage' | 'sessionStorage' = 'sessionStorage';
   public selectedAudioInput$ = new BehaviorSubject<MediaDeviceInfo | null>(null);
   public selectedVideoInput$ = new BehaviorSubject<MediaDeviceInfo | null>(null);
-  public preferredAudioInputDevice$ = new BehaviorSubject<string | null>(null);
-  public preferredAudioOutputDevice$ = new BehaviorSubject<string | null>(null);
-  public preferredVideoInputDevice$ = new BehaviorSubject<string | null>(null);
-  public preferredAudioInputDeviceVolume$ = new BehaviorSubject<number | null>(null);
-  private devices: MediaDeviceInfo[] = [];
-  private devicesGoups: DevicesGroup[] = [];
+  public devices$ = new BehaviorSubject<MediaDeviceInfo[]>([]);
+  public devicesGoups$ = new BehaviorSubject<DevicesGroup[]>([]);
 
   constructor(
-    private readonly config: NgxWebrtConfiguration,
+    private readonly config: Configuration,
     private streamService: StreamService,
-  ){}
+    private preferencesService: PreferencesService
+  ){
+      // not possible with HostListener
+      navigator.mediaDevices.addEventListener('devicechange', this.onDeviceChangeListener);
+  }
 
-  detectSelectedDevices() {
-    this.getMediaDevices().then(devices => {
-      this.devices = devices;
-      this.devicesGoups = this.groupDeviceByKind(devices, [], true);
+  ngOnDestroy(): void {
+    navigator.mediaDevices.removeEventListener('devicechange', this.onDeviceChangeListener);
+  }
+
+  private onDeviceChangeListener: EventListener = () => {
+    this.detectSelectedDevices().then(devices => {
+      if (this.config.debug) {
+        console.log('devices after devicechange event');
+        console.log(devices);
+      }
+    }) 
+  }
+
+  detectSelectedDevices(): Promise<MediaDeviceInfo[]> {
+    return new Promise((resolve, reject) => {
+      this.getMediaDevices().then(devices => {
+        this.devices$.next(devices);
+        this.devicesGoups$.next(this.groupDeviceByKind(devices, []));
+        resolve(devices);
+      }, reject);
     });
   }
 
 
-  getMediaDevicesGrouped() {
-    return this.devicesGoups;
+  getMediaDevicesGrouped(omit: DeviceType[] = []) {
+    const devicesGoups = this.devicesGoups$.getValue();
+    if (omit.length) {
+      return devicesGoups.filter(e => !omit.includes(e.kind));
+    }
+    return devicesGoups;
   }
 
   /**
@@ -54,55 +76,77 @@ export class DeviceService {
    * @param deviceId id of selected device
    * @param kind type of selected device `VideDevice` or `AudioDevice`
    */
-  changeSelectedDevice(deviceId: string, kind: DeviceType): void {
-    if (kind === DeviceType.VideoInput) {
-      if (this.devices && this.devices.length) {
-        const device = this.devices.find(d => d.deviceId === deviceId);
-        if (device) {
-          this.selectedVideoInput$.next(device)
+  changeSelectedDevice(deviceId: string, kind: DeviceType): Promise<void> {
+    return new Promise<void>((resolve, rejects) => {
+      const devices = this.devices$.getValue();
+      if (kind === DeviceType.VideoInput) {
+        if (this.selectedVideoInput$.getValue()?.deviceId === deviceId) {
+          resolve();
         }
+        navigator.mediaDevices.getUserMedia({ video: {
+          deviceId
+        }}).then((newStream) => {
+          this.preferencesService.setPreferredVideoInputDevice(deviceId);
+          if (devices && devices.length) {
+            const device = devices.find(d => d.deviceId === deviceId);
+            if (device) {
+              this.selectedVideoInput$.next(device)
+            }
+          }   
+          const track = this.streamService.getVideoTrackForStream(newStream);
+          const currentStream = this.streamService.getLocalStream();
+          console.log(currentStream);
+          if (currentStream && track) {
+            this.streamService.replaceTrack(track);
+            const oldTrack = this.streamService.getVideoTrackForStream(currentStream);
+            oldTrack?.stop();
+            this.streamService.replaceTrackInStream(currentStream, track);
+          } else {
+            this.streamService.setLocalStream(newStream);
+          }
+          resolve();
+        }, (error) => {
+          console.error(error);
+          rejects(error);
+        });
       }
-      navigator.mediaDevices.getUserMedia({ video: {
-        deviceId
-      }}).then((stream) => {
-        
-        const track = this.streamService.getVideoTrackForStream(stream);
-        if (track) {
-          this.streamService.replaceTrack(track);
+      if (kind === DeviceType.AudioInput) {
+        if (this.selectedAudioInput$.getValue()?.deviceId === deviceId) {
+          resolve();
         }
-        const currentStream = this.streamService.getLocalStream();
-        if (currentStream && track) {
-          const oldTrack = this.streamService.getVideoTrackForStream(currentStream);
-          oldTrack?.stop();
-          this.streamService.replaceTrackInStream(currentStream, track);
-        }
-      }, console.error);
-    }
-    if (kind === DeviceType.AudioInput) {
-      if (this.devices && this.devices.length) {
-        const device = this.devices.find(d => d.deviceId === deviceId);
-        if (device) {
-          this.selectedAudioInput$.next(device)
-        }
+        navigator.mediaDevices.getUserMedia({ audio: {
+          deviceId
+        }}).then((newStream) => {
+          this.preferencesService.setPreferredAudioInputDevice(deviceId);
+          if (devices && devices.length) {
+            const device = devices.find(d => d.deviceId === deviceId);
+            if (device) {
+              this.selectedAudioInput$.next(device)
+            }
+          }
+          const track = this.streamService.getAudioTrackForStream(newStream);
+          if(track) {
+            this.streamService.replaceTrack(track);
+          }
+          const currentStream = this.streamService.getLocalStream();
+          if (currentStream && track) {
+            const oldTrack = this.streamService.getAudioTrackForStream(currentStream);
+            oldTrack?.stop();
+            this.streamService.replaceTrackInStream(currentStream, track);
+          } else {
+            this.streamService.setLocalStream(newStream);
+          }
+          resolve();
+        }, (error) => {
+          console.error(error);
+          rejects(error);
+        });
       }
-      navigator.mediaDevices.getUserMedia({ audio: {
-        deviceId
-      }}).then((stream) => {
-        const track = this.streamService.getAudioTrackForStream(stream);
-        if(track) {
-          this.streamService.replaceTrack(track);
-        }
-        const currentStream = this.streamService.getLocalStream();
-        if (currentStream && track) {
-          const oldTrack = this.streamService.getVideoTrackForStream(currentStream);
-          oldTrack?.stop();
-          this.streamService.replaceTrackInStream(currentStream, track);
-        }
-      }, console.error);
-    }
-    if (kind === DeviceType.AudioOutput) {
-      this.streamService.setAudioOutput(deviceId);
-    }
+      if (kind === DeviceType.AudioOutput) {
+        this.streamService.setAudioOutput(deviceId);
+        resolve();
+      }
+    });
   }
 
   /**
@@ -135,24 +179,11 @@ export class DeviceService {
    * @param devices list of devices you get by calling `StreamService.getMediaDevices()`
    * @returns a list of devices grouped by `DeviceType`
    */
-  groupDeviceByKind(devices: MediaDeviceInfo[], omit: DeviceType[] = [], updateSelected = false): DevicesGroup[] {
+  groupDeviceByKind(devices: MediaDeviceInfo[], omit: DeviceType[] = []): DevicesGroup[] {
     const devicesGoups: DevicesGroup[] = [];
     const audioInput = devices.filter(d => d.kind === DeviceType.AudioInput);
     const audioOutput = devices.filter(d => d.kind === DeviceType.AudioOutput);
     const videoinput = devices.filter(d => d.kind === DeviceType.VideoInput);
-    if (updateSelected) {
-      devices.forEach(device => {
-        const type = device.kind as DeviceType;
-        if (this.isDeviceSelected(device, type)) {
-          if (type === DeviceType.VideoInput) {
-            this.selectedVideoInput$.next(device);
-          }
-          if (type === DeviceType.AudioInput) {
-            this.selectedAudioInput$.next(device);
-          }
-        }
-      });
-    }
     if (audioInput.length && !omit.includes(DeviceType.AudioInput)) {
       devicesGoups.push({
         kind: DeviceType.AudioInput,
@@ -172,6 +203,57 @@ export class DeviceService {
       });
     }
     return devicesGoups;
+  }
+
+  /**
+   * An simple wrapper for `navigator.mediaDevices.getUserMedia`, with basis error handling.
+   * @todo refactor
+   * @param mediaConstraints a MediaStreamConstraints e.g. with specific deviceId, resolution or just audio. Default is:
+   *                          ```json
+   *                         {
+   *                             audio: true,
+   *                             video: true
+   *                         }
+   *                         ```
+   * @returns Promise that resilve to a stream matching the constraint
+   */
+  public tryGetUserMedia(mediaConstraints?: MediaStreamConstraints): Promise<MediaStream> {
+    if (!mediaConstraints) {
+      mediaConstraints = {
+        audio: true,
+        video: true
+      }
+    };
+    return new Promise((resolve, reject) => {
+      this.detectSelectedDevices().then(() => {
+        navigator.mediaDevices.getUserMedia(mediaConstraints).then(steam => {
+          this.setDeviceAndResolve(steam, resolve);
+        },reject);
+      }, reject);
+    });
+  }
+
+  setDeviceAndResolve(stream: MediaStream, resolve: (value: MediaStream | PromiseLike<MediaStream>) => void) {
+    const devicesGoups = this.devicesGoups$.getValue();
+    const videoDevices = devicesGoups.find(e => e.kind === DeviceType.VideoInput);
+    const videoTrack = this.streamService.getVideoTrackForStream(stream);
+    if (videoTrack && videoDevices) {
+      const selectedVideoDevice = videoDevices.devices.find(e => e.deviceId === videoTrack.getSettings().deviceId);
+      if (selectedVideoDevice) {
+        this.selectedVideoInput$.next(selectedVideoDevice);
+        this.preferencesService.setPreferredVideoInputDevice(selectedVideoDevice.deviceId);
+      }
+    }
+    const audioDevices = devicesGoups.find(e => e.kind === DeviceType.AudioInput);
+    const audioTrack = this.streamService.getAudioTrackForStream(stream);
+    if (audioTrack && audioDevices) {
+      const selectedAudioDevice = audioDevices.devices.find(e => e.deviceId === audioTrack.getSettings().deviceId);
+      if (selectedAudioDevice) {
+        this.selectedAudioInput$.next(selectedAudioDevice);
+        this.preferencesService.setPreferredAudioInputDevice(selectedAudioDevice.deviceId);
+      }
+    }
+    resolve(stream);
   }
 
 }

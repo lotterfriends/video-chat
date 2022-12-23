@@ -27,6 +27,6 @@ import { UserlistComponent } from './userlist/userlist.component';
     DialogComponent,
     UserlistComponent,
     ConferenceGridHolderComponent,
-  ]
+  ],
 })
 export class DemoUiComponentsModule {}

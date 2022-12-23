@@ -41,7 +41,8 @@ const config: SocketIoConfig = {
     SocketIoModule.forRoot(config),
     NgxWebrtcModule.forRoot({
       debug: true,
-      userIdentifier: 'name'
+      userIdentifier: 'name',
+      savePreferredDeviceInStorage: true
     }),
   ],
   providers: [
