@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AvatarComponent {
 
   @Input() name = '';
+  @Input() size: 'mini' | 'medium' | 'small' | 'large' = 'large';
 
   generateColorForText(text: string): string {
     const sl: string[] = [', 100%, 40%', ', 100%, 41%'];
