@@ -233,6 +233,52 @@ export class DeviceService implements OnDestroy {
     });
   }
 
+  private findFirstSuccessful<T>(promises:(() => Promise<T>)[], onSuccess: (arg0: T) => void, onNotFound: () => void) {
+    const currentPromise = promises.shift();
+    if (currentPromise) {
+      currentPromise().then(onSuccess, () => {
+        this.findFirstSuccessful(promises, onSuccess, onNotFound);
+      });
+    } else {
+      onNotFound();
+    }
+  }
+
+  public tryGetMedia(onSuccess: (arg0: MediaStream) => void, onNotFound: () => void) {
+
+    const tryChain: (() => Promise<MediaStream>)[] = [
+      this.tryGetMediaWithPreferences.bind(this),
+      this.tryGetMediaDefault.bind(this),
+      this.tryGetMediaAudioOnly.bind(this)
+    ];
+
+    this.findFirstSuccessful<MediaStream>(tryChain, onSuccess, onNotFound);
+  }
+  
+  private tryGetMediaWithPreferences() {
+    const preferencesConstrains: MediaStreamConstraints = {
+      video: this.preferencesService.getVideoConstraintWithPreferences(),
+      audio: this.preferencesService.getAudioConstraintWithPreferences(),
+    };
+    return this.tryGetUserMedia(preferencesConstrains);
+  }
+  
+  private tryGetMediaDefault() {
+    this.preferencesService.resetPreferences();
+    return this.tryGetUserMedia({
+      video: true,
+      audio: true
+    });
+  }
+
+  private tryGetMediaAudioOnly() { 
+    return this.tryGetUserMedia({
+      video: false,
+      audio: true
+    });
+  }
+
+
   setDeviceAndResolve(stream: MediaStream, resolve: (value: MediaStream | PromiseLike<MediaStream>) => void) {
     const devicesGoups = this.devicesGoups$.getValue();
     const videoDevices = devicesGoups.find(e => e.kind === DeviceType.VideoInput);
