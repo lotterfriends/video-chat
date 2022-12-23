@@ -41,7 +41,7 @@ export class AppComponent {
     private socketService: SocketService,
     private serverService: ServerService,
     private uiService: UiService,
-    public channelHistoryService: ChannelHistoryService
+    public channelHistoryService: ChannelHistoryService,
   ) {
 
     this.uiService.isUserlistVisible$.subscribe(isVisible => {
