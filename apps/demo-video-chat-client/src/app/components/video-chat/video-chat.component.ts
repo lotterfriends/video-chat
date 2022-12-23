@@ -13,7 +13,6 @@ import { MessagesService } from '../../services/messages.service';
 import { SocketService } from '../../services/socket.service';
 import { UiService, ViewMode } from '../../services/ui.service';
 import { UserStorageService } from '../../services/user-storage.service';
-import { VideoChatService } from '../../services/video-chat.service';
 import { RemotePeerComponent } from './remote-peer/remote-peer.component';
 
 /**
