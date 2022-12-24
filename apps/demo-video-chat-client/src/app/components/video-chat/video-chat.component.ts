@@ -32,7 +32,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   private localStream: MediaStream | null = null;
   public localVideoEnabled = false;
   private isInitiator = false;
-  public self: string | null = null;
+  public self: string | null = this.userStorageService.getCurrentUsername();
   private users: User[] = [];
   private identifier: (keyof User) = this.callService.getUserIdentifier();
   private servers: IceServer[] = [];
@@ -67,8 +67,6 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.log('init');
-    // get own user from store
-    this.self = this.userStorageService.getCurrentUsername();
     this.initSocketEvents();
     this.initStreamEvents();
     this.initCallEvents();
