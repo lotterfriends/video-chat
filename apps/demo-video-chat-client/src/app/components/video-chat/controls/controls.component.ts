@@ -36,7 +36,7 @@ export class ControlsComponent implements OnInit {
       this.cdr.detectChanges();
     });
 
-    this.streamService.localAudioStreamStatusChanged.subscribe(isAudioEnabled => {
+    this.streamService.localAudioStreamStatusChanged.pipe(untilDestroyed(this)).subscribe(isAudioEnabled => {
       console.log('isAudioEnabled', isAudioEnabled);
     })
 
