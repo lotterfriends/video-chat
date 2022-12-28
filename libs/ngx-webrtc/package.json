@@ -1,6 +1,6 @@
 {
   "name": "ngx-webrtc",
-  "version": "0.3.0-pre2",
+  "version": "0.3.0-pre3",
   "license": "MIT",
   "keywords": ["front-end", "angular", "webrtc", "RTCPeerConnection", "webcam", "chat"],
   "peerDependencies": {
