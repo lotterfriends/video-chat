@@ -27,6 +27,8 @@ import { RemotePeerComponent } from './remote-peer/remote-peer.component';
 export class VideoChatComponent implements OnInit, AfterViewInit {
 
   private debug = true;
+  private debugPeerConnection = false;
+
   public pclients: {user: User, connection: PeerConnectionClient, component: ComponentRef<RemotePeerComponent>}[] = [];
   public viewMode = UiService.DEFAULTS.VIEW_MODE;
   private localStream: MediaStream | null = null;
@@ -280,7 +282,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
     const cert = await this.callService.createCertifcate();
     const pclient = await this.callService.createPeerClient({
-      // debug: this.debug,
+      debug: this.debugPeerConnection,
       peerConnectionConfig: {
         iceServers: this.servers,
         certificates: [cert],
@@ -323,11 +325,11 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     }
     
     pclient.muteMyAudio.pipe(untilDestroyed(this)).subscribe(() => {
-      this.streamService.muteLocalAudioStream();
+      this.streamService.disableLocalTrack(StreamType.Audio);
     });
 
     pclient.muteMyVideo.pipe(untilDestroyed(this)).subscribe(() => {
-      this.streamService.muteLocalVideoStream();
+      this.streamService.disableLocalTrack(StreamType.Video);
     });
 
     pclient.userMuteAudio.pipe(untilDestroyed(this)).subscribe(() => {
