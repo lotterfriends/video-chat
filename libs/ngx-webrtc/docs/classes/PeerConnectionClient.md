@@ -24,6 +24,7 @@
 - [negotiationNeededTriggered](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#negotiationneededtriggered)
 - [remoteHangUp](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#remotehangup)
 - [remoteStreamAdded](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#remotestreamadded)
+- [remoteTrackAdded](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#remotetrackadded)
 - [remotesDescriptionSet](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#remotesdescriptionset)
 - [seeNewCandidate$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#seenewcandidate$)
 - [settings](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#settings)
@@ -44,6 +45,7 @@
 - [audioMuted](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#audiomuted)
 - [audioUnmuted](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#audiounmuted)
 - [close](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#close)
+- [createOffer](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#createoffer)
 - [doAnswer](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#doanswer)
 - [drainMessageQueue](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#drainmessagequeue)
 - [error](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#error)
@@ -56,7 +58,7 @@
 - [onIceCandidate](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onicecandidate)
 - [onIceConnectionStateChange](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#oniceconnectionstatechange)
 - [onRecordIceCandidate](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onrecordicecandidate)
-- [onRemoteStreamAdded](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onremotestreamadded)
+- [onRemoteTrackAdded](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onremotetrackadded)
 - [onSetRemoteDescriptionSuccess](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onsetremotedescriptionsuccess)
 - [onSignalingStateChange](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onsignalingstatechange)
 - [onnegotiationneeded](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/PeerConnectionClient.md#onnegotiationneeded)
@@ -88,7 +90,7 @@
 
 #### Defined in
 
-[lib/peer-connection-client.ts:91](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L91)
+[lib/peer-connection-client.ts:95](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L95)
 
 ## Properties
 
@@ -98,7 +100,7 @@
 
 #### Defined in
 
-[lib/peer-connection-client.ts:22](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L22)
+[lib/peer-connection-client.ts:22](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L22)
 
 ___
 
@@ -108,7 +110,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:18](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L18)
+[lib/peer-connection-client.ts:18](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L18)
 
 ___
 
@@ -120,7 +122,7 @@ triggered if an error occure inital value is `null`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:45](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L45)
+[lib/peer-connection-client.ts:49](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L49)
 
 ___
 
@@ -130,7 +132,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:16](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L16)
+[lib/peer-connection-client.ts:16](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L16)
 
 ___
 
@@ -142,7 +144,7 @@ triggered on I see connection state changed, inital value is `null`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:89](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L89)
+[lib/peer-connection-client.ts:93](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L93)
 
 ___
 
@@ -152,7 +154,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:21](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L21)
+[lib/peer-connection-client.ts:21](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L21)
 
 ___
 
@@ -162,7 +164,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:15](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L15)
+[lib/peer-connection-client.ts:15](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L15)
 
 ___
 
@@ -172,7 +174,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:20](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L20)
+[lib/peer-connection-client.ts:20](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L20)
 
 ___
 
@@ -182,7 +184,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:17](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L17)
+[lib/peer-connection-client.ts:17](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L17)
 
 ___
 
@@ -194,7 +196,7 @@ triggered when the connected user asks for mute user audio
 
 #### Defined in
 
-[lib/peer-connection-client.ts:61](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L61)
+[lib/peer-connection-client.ts:65](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L65)
 
 ___
 
@@ -206,7 +208,7 @@ triggered when the connected user asks for mute user video
 
 #### Defined in
 
-[lib/peer-connection-client.ts:65](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L65)
+[lib/peer-connection-client.ts:69](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L69)
 
 ___
 
@@ -218,7 +220,7 @@ triggerd on need negotiation
 
 #### Defined in
 
-[lib/peer-connection-client.ts:85](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L85)
+[lib/peer-connection-client.ts:89](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L89)
 
 ___
 
@@ -230,7 +232,7 @@ triggered when connected user close connection
 
 #### Defined in
 
-[lib/peer-connection-client.ts:57](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L57)
+[lib/peer-connection-client.ts:61](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L61)
 
 ___
 
@@ -238,11 +240,23 @@ ___
 
 • **remoteStreamAdded**: `EventEmitter`<[`StreamTrack`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/StreamTrack.md)\>
 
-triggered when a remote stream is added
+triggered when a remote stream is added @deprecated use remoteTrackAdded
 
 #### Defined in
 
-[lib/peer-connection-client.ts:37](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L37)
+[lib/peer-connection-client.ts:37](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L37)
+
+___
+
+### remoteTrackAdded
+
+• **remoteTrackAdded**: `EventEmitter`<[`StreamTrack`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/StreamTrack.md)\>
+
+triggered when a remote track is added
+
+#### Defined in
+
+[lib/peer-connection-client.ts:41](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L41)
 
 ___
 
@@ -254,7 +268,7 @@ triggered when remote description is set, inital value is `null`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:53](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L53)
+[lib/peer-connection-client.ts:57](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L57)
 
 ___
 
@@ -266,7 +280,7 @@ triggered when new candidate is available initial value is `null`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:33](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L33)
+[lib/peer-connection-client.ts:33](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L33)
 
 ___
 
@@ -276,7 +290,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:19](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L19)
+[lib/peer-connection-client.ts:19](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L19)
 
 ___
 
@@ -288,7 +302,7 @@ triggered when the `RTCSignalingState` is changed inital value is `null`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:41](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L41)
+[lib/peer-connection-client.ts:45](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L45)
 
 ___
 
@@ -300,7 +314,7 @@ messages send by the peer connection
 
 #### Defined in
 
-[lib/peer-connection-client.ts:29](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L29)
+[lib/peer-connection-client.ts:29](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L29)
 
 ___
 
@@ -310,7 +324,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:13](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L13)
+[lib/peer-connection-client.ts:13](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L13)
 
 ___
 
@@ -320,7 +334,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:14](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L14)
+[lib/peer-connection-client.ts:14](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L14)
 
 ___
 
@@ -332,7 +346,7 @@ triggered when the connected user toggle share screen, inital value is `false`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:49](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L49)
+[lib/peer-connection-client.ts:53](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L53)
 
 ___
 
@@ -344,7 +358,7 @@ triggered when the connected user mutes his audio
 
 #### Defined in
 
-[lib/peer-connection-client.ts:77](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L77)
+[lib/peer-connection-client.ts:81](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L81)
 
 ___
 
@@ -356,7 +370,7 @@ triggered when the connected user mutes his video
 
 #### Defined in
 
-[lib/peer-connection-client.ts:69](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L69)
+[lib/peer-connection-client.ts:73](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L73)
 
 ___
 
@@ -368,7 +382,7 @@ triggered when the connected user unmutes his audio
 
 #### Defined in
 
-[lib/peer-connection-client.ts:81](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L81)
+[lib/peer-connection-client.ts:85](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L85)
 
 ___
 
@@ -380,7 +394,7 @@ triggered when the connected user unmutes his video
 
 #### Defined in
 
-[lib/peer-connection-client.ts:73](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L73)
+[lib/peer-connection-client.ts:77](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L77)
 
 ## Methods
 
@@ -402,7 +416,7 @@ Add all `MediaStreamTrack`s of a `MediaStream` to the connection
 
 #### Defined in
 
-[lib/peer-connection-client.ts:347](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L347)
+[lib/peer-connection-client.ts:360](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L360)
 
 ___
 
@@ -424,7 +438,7 @@ add a `MediaStreamTrack` to the connection
 
 #### Defined in
 
-[lib/peer-connection-client.ts:320](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L320)
+[lib/peer-connection-client.ts:333](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L333)
 
 ___
 
@@ -440,7 +454,7 @@ send `PeerConnectionClientSignalMessageType.AudioMuted` message to connected use
 
 #### Defined in
 
-[lib/peer-connection-client.ts:188](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L188)
+[lib/peer-connection-client.ts:201](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L201)
 
 ___
 
@@ -456,7 +470,7 @@ send `PeerConnectionClientSignalMessageType.AudioUnmuted` message to connected u
 
 #### Defined in
 
-[lib/peer-connection-client.ts:200](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L200)
+[lib/peer-connection-client.ts:213](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L213)
 
 ___
 
@@ -472,7 +486,27 @@ send `PeerConnectionClientSignalMessageType.Bye` message to connected user and c
 
 #### Defined in
 
-[lib/peer-connection-client.ts:173](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L173)
+[lib/peer-connection-client.ts:186](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L186)
+
+___
+
+### createOffer
+
+▸ **createOffer**(`offerOptions?`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `offerOptions` | `RTCOfferOptions` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[lib/peer-connection-client.ts:135](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L135)
 
 ___
 
@@ -486,7 +520,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:505](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L505)
+[lib/peer-connection-client.ts:521](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L521)
 
 ___
 
@@ -500,7 +534,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:537](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L537)
+[lib/peer-connection-client.ts:553](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L553)
 
 ___
 
@@ -520,7 +554,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:633](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L633)
+[lib/peer-connection-client.ts:653](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L653)
 
 ___
 
@@ -540,7 +574,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:380](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L380)
+[lib/peer-connection-client.ts:394](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L394)
 
 ___
 
@@ -558,7 +592,7 @@ get peer connection state
 
 #### Defined in
 
-[lib/peer-connection-client.ts:289](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L289)
+[lib/peer-connection-client.ts:302](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L302)
 
 ___
 
@@ -582,7 +616,7 @@ Promise that resolves to `RTCStatsReport`
 
 #### Defined in
 
-[lib/peer-connection-client.ts:309](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L309)
+[lib/peer-connection-client.ts:322](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L322)
 
 ___
 
@@ -602,7 +636,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:417](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L417)
+[lib/peer-connection-client.ts:431](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L431)
 
 ___
 
@@ -622,7 +656,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:627](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L627)
+[lib/peer-connection-client.ts:647](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L647)
 
 ___
 
@@ -643,7 +677,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:591](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L591)
+[lib/peer-connection-client.ts:607](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L607)
 
 ___
 
@@ -663,7 +697,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:397](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L397)
+[lib/peer-connection-client.ts:411](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L411)
 
 ___
 
@@ -677,7 +711,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:559](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L559)
+[lib/peer-connection-client.ts:575](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L575)
 
 ___
 
@@ -698,13 +732,13 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:596](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L596)
+[lib/peer-connection-client.ts:612](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L612)
 
 ___
 
-### onRemoteStreamAdded
+### onRemoteTrackAdded
 
-▸ `Private` **onRemoteStreamAdded**(`event`): `void`
+▸ `Private` **onRemoteTrackAdded**(`event`): `void`
 
 #### Parameters
 
@@ -718,7 +752,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:604](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L604)
+[lib/peer-connection-client.ts:620](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L620)
 
 ___
 
@@ -732,7 +766,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:611](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L611)
+[lib/peer-connection-client.ts:631](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L631)
 
 ___
 
@@ -746,7 +780,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:582](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L582)
+[lib/peer-connection-client.ts:598](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L598)
 
 ___
 
@@ -760,7 +794,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:573](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L573)
+[lib/peer-connection-client.ts:589](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L589)
 
 ___
 
@@ -780,7 +814,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:471](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L471)
+[lib/peer-connection-client.ts:487](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L487)
 
 ___
 
@@ -802,7 +836,7 @@ execute this methode to set messages in the peer connection. You need a connecti
 
 #### Defined in
 
-[lib/peer-connection-client.ts:443](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L443)
+[lib/peer-connection-client.ts:457](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L457)
 
 ___
 
@@ -824,7 +858,7 @@ replace current `MediaStreamTrack` with new from parameter
 
 #### Defined in
 
-[lib/peer-connection-client.ts:331](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L331)
+[lib/peer-connection-client.ts:344](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L344)
 
 ___
 
@@ -840,7 +874,7 @@ send `PeerConnectionClientSignalMessageType.RequestMuteAudio` message to connect
 
 #### Defined in
 
-[lib/peer-connection-client.ts:236](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L236)
+[lib/peer-connection-client.ts:249](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L249)
 
 ___
 
@@ -856,7 +890,7 @@ send `PeerConnectionClientSignalMessageType.RequestMuteVideo` message to connect
 
 #### Defined in
 
-[lib/peer-connection-client.ts:249](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L249)
+[lib/peer-connection-client.ts:262](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L262)
 
 ___
 
@@ -876,7 +910,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:353](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L353)
+[lib/peer-connection-client.ts:367](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L367)
 
 ___
 
@@ -896,7 +930,7 @@ ___
 
 #### Defined in
 
-[lib/peer-connection-client.ts:516](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L516)
+[lib/peer-connection-client.ts:532](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L532)
 
 ___
 
@@ -920,7 +954,7 @@ Start Peer connection as callee
 
 #### Defined in
 
-[lib/peer-connection-client.ts:139](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L139)
+[lib/peer-connection-client.ts:152](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L152)
 
 ___
 
@@ -946,7 +980,7 @@ Start Peer connection as caller
 
 #### Defined in
 
-[lib/peer-connection-client.ts:110](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L110)
+[lib/peer-connection-client.ts:117](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L117)
 
 ___
 
@@ -962,7 +996,7 @@ send `PeerConnectionClientSignalMessageType.StartShareScreen` message to connect
 
 #### Defined in
 
-[lib/peer-connection-client.ts:262](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L262)
+[lib/peer-connection-client.ts:275](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L275)
 
 ___
 
@@ -978,7 +1012,7 @@ send `PeerConnectionClientSignalMessageType.StopShareScreen` message to connecte
 
 #### Defined in
 
-[lib/peer-connection-client.ts:275](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L275)
+[lib/peer-connection-client.ts:288](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L288)
 
 ___
 
@@ -994,7 +1028,7 @@ send `PeerConnectionClientSignalMessageType.VideoMuted` message to connected use
 
 #### Defined in
 
-[lib/peer-connection-client.ts:212](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L212)
+[lib/peer-connection-client.ts:225](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L225)
 
 ___
 
@@ -1010,4 +1044,4 @@ send `PeerConnectionClientSignalMessageType.VideoUnmuted` message to connected u
 
 #### Defined in
 
-[lib/peer-connection-client.ts:224](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L224)
+[lib/peer-connection-client.ts:237](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/peer-connection-client.ts#L237)

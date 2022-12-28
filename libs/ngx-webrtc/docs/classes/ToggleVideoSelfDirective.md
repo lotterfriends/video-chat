@@ -14,6 +14,10 @@ Toggle disabled/enable video track to mute/unmute local video.
 
 - [constructor](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/ToggleVideoSelfDirective.md#constructor)
 
+### Events
+
+- [toggleMuteFailed](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/ToggleVideoSelfDirective.md#togglemutefailed)
+
 ### Properties
 
 - [callStartedSubscription$](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/ToggleVideoSelfDirective.md#callstartedsubscription$)
@@ -47,7 +51,17 @@ Toggle disabled/enable video track to mute/unmute local video.
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:23](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L23)
+[lib/directives/toggle-video-self.directive.ts:24](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L24)
+
+## Events
+
+### toggleMuteFailed
+
+• **toggleMuteFailed**: `EventEmitter`<`Error`\>
+
+#### Defined in
+
+[lib/directives/toggle-video-self.directive.ts:17](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L17)
 
 ## Properties
 
@@ -57,7 +71,7 @@ Toggle disabled/enable video track to mute/unmute local video.
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:15](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L15)
+[lib/directives/toggle-video-self.directive.ts:15](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L15)
 
 ___
 
@@ -67,7 +81,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:17](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L17)
+[lib/directives/toggle-video-self.directive.ts:18](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L18)
 
 ___
 
@@ -77,7 +91,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:18](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L18)
+[lib/directives/toggle-video-self.directive.ts:19](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L19)
 
 ___
 
@@ -87,7 +101,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:16](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L16)
+[lib/directives/toggle-video-self.directive.ts:16](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L16)
 
 ## Methods
 
@@ -101,7 +115,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:36](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L36)
+[lib/directives/toggle-video-self.directive.ts:37](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L37)
 
 ___
 
@@ -119,7 +133,7 @@ OnDestroy.ngOnDestroy
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:31](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L31)
+[lib/directives/toggle-video-self.directive.ts:32](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L32)
 
 ___
 
@@ -133,7 +147,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:19](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L19)
+[lib/directives/toggle-video-self.directive.ts:20](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L20)
 
 ___
 
@@ -153,7 +167,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:47](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L47)
+[lib/directives/toggle-video-self.directive.ts:48](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L48)
 
 ___
 
@@ -173,7 +187,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:40](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L40)
+[lib/directives/toggle-video-self.directive.ts:41](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L41)
 
 ___
 
@@ -187,7 +201,7 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:61](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L61)
+[lib/directives/toggle-video-self.directive.ts:60](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L60)
 
 ___
 
@@ -199,7 +213,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `track` | `MediaStreamTrack` |
+| `track` | ``null`` \| `MediaStreamTrack` |
 
 #### Returns
 
@@ -207,4 +221,4 @@ ___
 
 #### Defined in
 
-[lib/directives/toggle-video-self.directive.ts:65](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L65)
+[lib/directives/toggle-video-self.directive.ts:66](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/directives/toggle-video-self.directive.ts#L66)

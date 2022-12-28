@@ -28,7 +28,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `libConfiguration` | [`NgxWebrtConfiguration`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/classes/NgxWebrtConfiguration.md) |
+| `libConfiguration` | [`NgxWebrtcConfiguration`](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/NgxWebrtcConfiguration.md) |
 
 #### Returns
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[lib/ngx-webrtc.module.ts:25](https://github.com/lotterfriends/video-chat/blob/c0f0927/libs/ngx-webrtc/src/lib/ngx-webrtc.module.ts#L25)
+[lib/ngx-webrtc.module.ts:26](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/ngx-webrtc.module.ts#L26)
