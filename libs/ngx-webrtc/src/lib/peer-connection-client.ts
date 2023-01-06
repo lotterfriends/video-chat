@@ -333,7 +333,15 @@ export class PeerConnectionClient {
   public addTrack(track: MediaStreamTrack): void {
     this.log('addTrack', track);
     if (this.connection) {
-      this.connection.addTrack(track);
+      const sender = this.connection.getSenders().find((s) => {
+        return s?.track?.kind === track.kind;
+      });
+      if (sender?.track) {
+        this.log('existing track found using replaceTrack instead');
+        this.replaceTrack(track);
+      } else {
+        this.connection.addTrack(track);
+      }
     }
   }
 
@@ -347,7 +355,10 @@ export class PeerConnectionClient {
       const sender = this.connection.getSenders().find((s) => {
         return s?.track?.kind === track.kind;
       });
-      if (sender) {
+      if (!sender?.track) {
+        this.log('no track found using addTrack instead');
+        this.addTrack(track);
+      } else {
         sender.replaceTrack(track);
       }
     }
