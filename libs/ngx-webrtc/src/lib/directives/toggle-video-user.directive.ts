@@ -18,7 +18,7 @@ export class ToggleVideoUserDirective {
 
   toggleUserVideo(): void {
     if (!this.ngxWebrtcToggleVideoUser) {
-      console.log('user not set');
+      console.warn('user not set');
       return;
     }
     if (this.ngxWebrtcToggleVideoUser?.connection) {

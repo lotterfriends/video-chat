@@ -37,7 +37,6 @@ export class TextChatContainerComponent implements OnInit {
           ...data.messages.filter(m => m.type === MessageType.Text),
           ...this.messages
         ];
-        console.log(this.messages);
       });
   }
 

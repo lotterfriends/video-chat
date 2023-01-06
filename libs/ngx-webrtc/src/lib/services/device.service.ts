@@ -95,7 +95,6 @@ export class DeviceService implements OnDestroy {
           }   
           const track = this.streamService.getVideoTrackForStream(newStream);
           const currentStream = this.streamService.getLocalStream();
-          console.log(currentStream);
           if (currentStream && track) {
             this.streamService.replaceTrack(track);
             const oldTrack = this.streamService.getVideoTrackForStream(currentStream);
