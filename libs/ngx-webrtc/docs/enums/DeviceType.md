@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[lib/enums/device-type.ts:3](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/enums/device-type.ts#L3)
+[lib/enums/device-type.ts:3](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/enums/device-type.ts#L3)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[lib/enums/device-type.ts:4](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/enums/device-type.ts#L4)
+[lib/enums/device-type.ts:4](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/enums/device-type.ts#L4)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[lib/enums/device-type.ts:5](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/enums/device-type.ts#L5)
+[lib/enums/device-type.ts:5](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/enums/device-type.ts#L5)

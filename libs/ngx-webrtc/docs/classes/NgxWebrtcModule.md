@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[lib/ngx-webrtc.module.ts:26](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/ngx-webrtc.module.ts#L26)
+[lib/ngx-webrtc.module.ts:31](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/ngx-webrtc.module.ts#L31)

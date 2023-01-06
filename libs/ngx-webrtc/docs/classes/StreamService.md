@@ -63,7 +63,7 @@
 
 #### Defined in
 
-[lib/services/stream.service.ts:58](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L58)
+[lib/services/stream.service.ts:58](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L58)
 
 ## Properties
 
@@ -75,7 +75,7 @@ Emitted when `StreamService.setAudioOutput` is called with new device (Call it w
 
 #### Defined in
 
-[lib/services/stream.service.ts:29](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L29)
+[lib/services/stream.service.ts:29](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L29)
 
 ___
 
@@ -89,7 +89,7 @@ Set to `true` when the StreamService.tryGetUserMedia is succefull for audio (mic
 
 #### Defined in
 
-[lib/services/stream.service.ts:56](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L56)
+[lib/services/stream.service.ts:56](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L56)
 
 ___
 
@@ -103,7 +103,7 @@ Set to `true` when the StreamService.tryGetUserMedia is succefull for video (cam
 
 #### Defined in
 
-[lib/services/stream.service.ts:50](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L50)
+[lib/services/stream.service.ts:50](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L50)
 
 ___
 
@@ -115,7 +115,7 @@ Emitted when the status of the local audio stream changed e.g. audio disabled or
 
 #### Defined in
 
-[lib/services/stream.service.ts:39](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L39)
+[lib/services/stream.service.ts:39](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L39)
 
 ___
 
@@ -127,7 +127,7 @@ You can subscribe to screen share changes
 
 #### Defined in
 
-[lib/services/stream.service.ts:19](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L19)
+[lib/services/stream.service.ts:19](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L19)
 
 ___
 
@@ -139,7 +139,7 @@ You can subscribe to localSteam changes
 
 #### Defined in
 
-[lib/services/stream.service.ts:15](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L15)
+[lib/services/stream.service.ts:15](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L15)
 
 ___
 
@@ -151,7 +151,7 @@ Emitted when the status of the local stream changed e.g. audio or video disabled
 
 #### Defined in
 
-[lib/services/stream.service.ts:34](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L34)
+[lib/services/stream.service.ts:34](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L34)
 
 ___
 
@@ -163,7 +163,7 @@ Emitted when the status of the local video stream changed e.g. video disabled or
 
 #### Defined in
 
-[lib/services/stream.service.ts:44](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L44)
+[lib/services/stream.service.ts:44](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L44)
 
 ___
 
@@ -175,7 +175,7 @@ Emitted with new Track when `StreamService.replaceTrack` is called
 
 #### Defined in
 
-[lib/services/stream.service.ts:24](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L24)
+[lib/services/stream.service.ts:24](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L24)
 
 ## Methods
 
@@ -195,7 +195,7 @@ Emitted with new Track when `StreamService.replaceTrack` is called
 
 #### Defined in
 
-[lib/services/stream.service.ts:193](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L193)
+[lib/services/stream.service.ts:193](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L193)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[lib/services/stream.service.ts:147](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L147)
+[lib/services/stream.service.ts:147](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L147)
 
 ___
 
@@ -239,7 +239,7 @@ first audio track of stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:418](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L418)
+[lib/services/stream.service.ts:418](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L418)
 
 ___
 
@@ -257,7 +257,7 @@ current local stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:305](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L305)
+[lib/services/stream.service.ts:305](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L305)
 
 ___
 
@@ -277,7 +277,7 @@ Promise that resolves to media Devices as array
 
 #### Defined in
 
-[lib/services/stream.service.ts:430](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L430)
+[lib/services/stream.service.ts:430](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L430)
 
 ___
 
@@ -295,7 +295,7 @@ MediaStram of desktop or display
 
 #### Defined in
 
-[lib/services/stream.service.ts:381](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L381)
+[lib/services/stream.service.ts:381](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L381)
 
 ___
 
@@ -319,7 +319,7 @@ first video track of stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:406](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L406)
+[lib/services/stream.service.ts:406](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L406)
 
 ___
 
@@ -335,7 +335,7 @@ mute local audio stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:330](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L330)
+[lib/services/stream.service.ts:330](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L330)
 
 ___
 
@@ -351,7 +351,7 @@ mute local video stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:360](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L360)
+[lib/services/stream.service.ts:360](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L360)
 
 ___
 
@@ -374,7 +374,7 @@ Mute stream in node.
 
 #### Defined in
 
-[lib/services/stream.service.ts:259](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L259)
+[lib/services/stream.service.ts:259](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L259)
 
 ___
 
@@ -396,7 +396,7 @@ set replace track service state. You can subscribe to `StreamService.replaceTrac
 
 #### Defined in
 
-[lib/services/stream.service.ts:313](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L313)
+[lib/services/stream.service.ts:313](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L313)
 
 ___
 
@@ -419,7 +419,7 @@ replace a track in stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:277](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L277)
+[lib/services/stream.service.ts:277](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L277)
 
 ___
 
@@ -441,7 +441,7 @@ set current audio device in service state. You can subscribe to `StreamService.a
 
 #### Defined in
 
-[lib/services/stream.service.ts:438](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L438)
+[lib/services/stream.service.ts:438](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L438)
 
 ___
 
@@ -463,7 +463,7 @@ set local stream in service state
 
 #### Defined in
 
-[lib/services/stream.service.ts:297](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L297)
+[lib/services/stream.service.ts:297](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L297)
 
 ___
 
@@ -486,7 +486,7 @@ ___
 
 #### Defined in
 
-[lib/services/stream.service.ts:87](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L87)
+[lib/services/stream.service.ts:87](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L87)
 
 ___
 
@@ -508,7 +508,7 @@ stop stream playing in node
 
 #### Defined in
 
-[lib/services/stream.service.ts:121](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L121)
+[lib/services/stream.service.ts:121](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L121)
 
 ___
 
@@ -528,7 +528,7 @@ ___
 
 #### Defined in
 
-[lib/services/stream.service.ts:129](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L129)
+[lib/services/stream.service.ts:129](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L129)
 
 ___
 
@@ -544,7 +544,7 @@ toggle mute audio of local stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:320](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L320)
+[lib/services/stream.service.ts:320](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L320)
 
 ___
 
@@ -560,7 +560,7 @@ toggle mute local video stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:350](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L350)
+[lib/services/stream.service.ts:350](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L350)
 
 ___
 
@@ -584,7 +584,7 @@ set stream or track mute state or toggle mute
 
 #### Defined in
 
-[lib/services/stream.service.ts:226](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L226)
+[lib/services/stream.service.ts:226](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L226)
 
 ___
 
@@ -612,7 +612,7 @@ Promise that resilve to a stream matching the constraint
 
 #### Defined in
 
-[lib/services/stream.service.ts:456](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L456)
+[lib/services/stream.service.ts:456](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L456)
 
 ___
 
@@ -628,7 +628,7 @@ unmute local audio stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:340](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L340)
+[lib/services/stream.service.ts:340](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L340)
 
 ___
 
@@ -644,7 +644,7 @@ unmute local video stream
 
 #### Defined in
 
-[lib/services/stream.service.ts:370](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L370)
+[lib/services/stream.service.ts:370](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L370)
 
 ___
 
@@ -667,7 +667,7 @@ Unmute stream in node.
 
 #### Defined in
 
-[lib/services/stream.service.ts:268](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L268)
+[lib/services/stream.service.ts:268](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L268)
 
 ___
 
@@ -692,4 +692,4 @@ aspect ratio for the given width and height
 
 #### Defined in
 
-[lib/services/stream.service.ts:70](https://github.com/lotterfriends/video-chat/blob/1e50ece/libs/ngx-webrtc/src/lib/services/stream.service.ts#L70)
+[lib/services/stream.service.ts:70](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/stream.service.ts#L70)

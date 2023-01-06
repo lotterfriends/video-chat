@@ -195,6 +195,31 @@ The library provides a CallService in which the status of the connected users is
 - [StreamTrack](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/StreamTrack.md)
 - [User](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/User.md)
 - [UserInCall](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/interfaces/UserInCall.md)
+
+### Variables
+
+- [NGX\_WEBRTC\_STORAGE](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/modules.md#ngx_webrtc_storage)
+- [NGX\_WEBRTC\_STORAGE\_PREFIX](https://github.com/lotterfriends/ngx-webrtc/tree/main/libs/ngx-webrtc/docs/modules.md#ngx_webrtc_storage_prefix)
+
+## Variables
+
+### NGX\_WEBRTC\_STORAGE
+
+• `Const` **NGX\_WEBRTC\_STORAGE**: `InjectionToken`<``"localStorage"`` \| ``"sessionStorage"``\>
+
+#### Defined in
+
+[lib/ngx-webrtc-storage.ts:3](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/ngx-webrtc-storage.ts#L3)
+
+___
+
+### NGX\_WEBRTC\_STORAGE\_PREFIX
+
+• `Const` **NGX\_WEBRTC\_STORAGE\_PREFIX**: `InjectionToken`<`string`\>
+
+#### Defined in
+
+[lib/ngx-webrtc-storage-prefix.ts:3](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/ngx-webrtc-storage-prefix.ts#L3)
 # TODO
 - blur / replace background
 - talking detection 
