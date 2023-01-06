@@ -38,7 +38,8 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   private users: User[] = [];
   private identifier: (keyof User) = this.callService.getUserIdentifier();
   private servers: IceServer[] = [];
-
+  private usersJoinedDuringInit: User[] = [];
+  
   @Input() room!: string;
   @ViewChild('localStreamNode', { static: false }) localStreamNode!: ElementRef<HTMLVideoElement>;
   @ViewChild('remotePeerHolder',  { read: ViewContainerRef }) remotePeerHolder!: ViewContainerRef;
@@ -75,6 +76,11 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   }
 
   private initSocketEvents() {
+    this.socketService.onUsersJoinedRoom().pipe(
+      untilDestroyed(this),
+      distinctUntilChanged()
+    ).subscribe(this.onUserJoined.bind(this));
+
     this.socketService.onUserLeftRoom().pipe(
       untilDestroyed(this),
       distinctUntilChanged()
@@ -98,6 +104,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     this.streamService.localAudioStreamStatusChanged.pipe(
       untilDestroyed(this),
     ).subscribe(localAudioEnabled => {
+      // inform peers about audio status
       this.pclients.forEach(e => {
         localAudioEnabled ? e.connection.audioUnmuted() : e.connection.audioMuted();
       });
@@ -106,8 +113,8 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     this.streamService.localVideoStreamStatusChanged.pipe(
       untilDestroyed(this),
       ).subscribe(localVideoEnabled => {
-        console.log('localVideoStreamStatusChanged', localVideoEnabled);
         this.localVideoEnabled = localVideoEnabled;
+        // inform peers about video status
         this.pclients.forEach(e => {
           localVideoEnabled ? e.connection.videoUnmuted() : e.connection.videoMuted();
         });
@@ -128,7 +135,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     this.streamService.replaceTrack$.pipe(
       untilDestroyed(this),
       filter(e => e !== null)
-    ).subscribe((track) => {
+    ).subscribe((track: MediaStreamTrack | null) => {
       this.log('replaceTrack', track);
       if (track) {
         if (track.kind === StreamType.Audio && this.localStream?.getAudioTracks().length || 
@@ -190,11 +197,6 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
     this.log('joinedRoom');
 
-    this.socketService.onUsersJoinedRoom().pipe(
-      untilDestroyed(this),
-      distinctUntilChanged()
-    ).subscribe(this.onUserJoined.bind(this));
-
     this.socketService.joinedRoom();
     this.callService.start();
   }
@@ -206,13 +208,11 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
     this.log('joinedRoom');
 
-    this.socketService.onUsersJoinedRoom().pipe(
-      untilDestroyed(this),
-      distinctUntilChanged()
-    ).subscribe(this.onUserJoined.bind(this));
-
     this.socketService.joinedRoom();
     this.callService.start();
+    if (this.usersJoinedDuringInit.length) {
+      this.onUserJoined(this.usersJoinedDuringInit);
+    }
   }
 
   private filterConnectedUsers(user: User): boolean {
@@ -221,6 +221,11 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
   }
 
   private async onUserJoined(users: User[]): Promise<void> {
+    if (!this.callService.started$.getValue()) {
+      this.usersJoinedDuringInit = users;
+      return;
+    }
+    this.usersJoinedDuringInit = [];
     if (this.users === users) {
       return;
     }
