@@ -1,4 +1,4 @@
-import { ComponentRef, EventEmitter, Injectable } from '@angular/core';
+import { ComponentRef, EventEmitter, Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../interfaces/user';
 import { RemotePeerComponentInterface } from '../interfaces/remote-peer-component-interface';
@@ -7,6 +7,7 @@ import { PeerConnectionClientSettings } from "../interfaces/peer-connection-clie
 import { UserInCall } from '../interfaces/user-in-call';
 import { Configuration } from '../ngx-webrtc-configuration';
 import { IceServer } from '../interfaces/ice-server';
+import { NGX_WEBRTC_STORAGE } from '../ngx-webrtc-storage';
 
 /**
  * The CallService holds the state of the peer connection. It provides methods to update the state
@@ -17,9 +18,9 @@ import { IceServer } from '../interfaces/ice-server';
 })
 export class CallService {
 
-  private storage: 'localStorage' | 'sessionStorage' = 'sessionStorage';
   constructor(
-    private readonly config: Configuration
+    private readonly config: Configuration,
+    @Inject(NGX_WEBRTC_STORAGE) private readonly storage: 'localStorage' | 'sessionStorage',
   ){}
 
 

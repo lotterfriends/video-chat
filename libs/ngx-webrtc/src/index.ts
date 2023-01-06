@@ -3,6 +3,8 @@ export * from './lib/ngx-webrtc-configuration';
 
 export * from './lib/peer-connection-client';
 export * from './lib/sdp-utils';
+export * from './lib/ngx-webrtc-storage';
+export * from './lib/ngx-webrtc-storage-prefix';
 
 // directives
 export * from './lib/directives/share-screen.directive';

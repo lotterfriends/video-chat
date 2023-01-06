@@ -2,7 +2,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxWebrtcModule } from 'ngx-webrtc';
+import { NgxWebrtcModule, NGX_WEBRTC_STORAGE_PREFIX } from 'ngx-webrtc';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth-interceptor';
@@ -47,6 +47,7 @@ const config: SocketIoConfig = {
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: NGX_WEBRTC_STORAGE_PREFIX, useValue: 'demo-video-chat' } 
   ],
   bootstrap: [AppComponent],
   exports: [
