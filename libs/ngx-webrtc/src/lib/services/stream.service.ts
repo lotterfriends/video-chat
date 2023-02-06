@@ -176,6 +176,7 @@ export class StreamService {
             stream.getAudioTracks().forEach(track => {
               localStream.addTrack(track);
               this.localAudioStreamStatusChanged.emit(true);
+              this.replaceTrack(track);
             });
             this.localStream$.next(localStream);
             this.localStreamStatusChanged.emit(localStream);
