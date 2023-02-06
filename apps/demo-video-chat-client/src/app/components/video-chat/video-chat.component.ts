@@ -125,7 +125,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setSinkId
     this.streamService.audioOutput$.pipe(
     untilDestroyed(this),
-      filter(e => e !== null)
+      filter(e => e !== null),
     ).subscribe(deviceId => {
       this.pclients.forEach(async client => {
         await client.component?.instance?.audioStreamNode?.nativeElement?.setSinkId(deviceId);
@@ -205,9 +205,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     this.log('onNoStream');
     const emptyStream = new MediaStream();
     this.streamService.setLocalStream(emptyStream);
-
     this.log('joinedRoom');
-
     this.socketService.joinedRoom();
     this.callService.start();
     if (this.usersJoinedDuringInit.length) {
@@ -244,7 +242,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
         this.pclients.push({
           component,
           user,
-          connection
+          connection,
         });
         this.callService.addUser(user, connection, component);
         component.instance.setUser(user);
@@ -291,7 +289,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
       peerConnectionConfig: {
         iceServers: this.servers,
         certificates: [cert],
-      }
+      },
     });
 
     // add media
@@ -321,7 +319,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
 
     if (this.localStream && this.localStream.getTracks().length) {
       pclient.negotiationNeededTriggered.pipe(
-        first()
+        first(),
       ).subscribe(() => {
         this.startPeerConnection(pclient, user);
       });
@@ -378,7 +376,7 @@ export class VideoChatComponent implements OnInit, AfterViewInit {
     }
 
     pclient.negotiationNeededTriggered.pipe(
-      untilDestroyed(this)
+      untilDestroyed(this),
     ).subscribe(() => {
       pclient.createOffer();
     });
