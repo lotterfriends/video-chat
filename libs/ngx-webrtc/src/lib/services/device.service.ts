@@ -278,7 +278,7 @@ export class DeviceService implements OnDestroy {
   }
 
 
-  setDeviceAndResolve(stream: MediaStream, resolve: (value: MediaStream | PromiseLike<MediaStream>) => void) {
+  private setDeviceAndResolve(stream: MediaStream, resolve: (value: MediaStream | PromiseLike<MediaStream>) => void) {
     const devicesGoups = this.devicesGoups$.getValue();
     const videoDevices = devicesGoups.find(e => e.kind === DeviceType.VideoInput);
     const videoTrack = this.streamService.getVideoTrackForStream(stream);
