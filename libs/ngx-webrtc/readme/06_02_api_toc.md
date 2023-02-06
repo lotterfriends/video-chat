@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[lib/ngx-webrtc-storage.ts:3](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/ngx-webrtc-storage.ts#L3)
+[lib/ngx-webrtc-storage.ts:3](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/ngx-webrtc-storage.ts#L3)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 #### Defined in
 
-[lib/ngx-webrtc-storage-prefix.ts:3](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/ngx-webrtc-storage-prefix.ts#L3)
+[lib/ngx-webrtc-storage-prefix.ts:3](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/ngx-webrtc-storage-prefix.ts#L3)

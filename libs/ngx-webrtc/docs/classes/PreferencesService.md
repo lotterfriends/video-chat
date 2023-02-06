@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[lib/services/preferences.service.ts:23](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L23)
+[lib/services/preferences.service.ts:23](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L23)
 
 ## Properties
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[lib/services/preferences.service.ts:17](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L17)
+[lib/services/preferences.service.ts:17](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L17)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:18](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L18)
+[lib/services/preferences.service.ts:18](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L18)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:19](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L19)
+[lib/services/preferences.service.ts:19](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L19)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:16](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L16)
+[lib/services/preferences.service.ts:16](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L16)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:12](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L12)
+[lib/services/preferences.service.ts:12](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L12)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:15](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L15)
+[lib/services/preferences.service.ts:15](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L15)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:13](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L13)
+[lib/services/preferences.service.ts:13](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L13)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:14](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L14)
+[lib/services/preferences.service.ts:14](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L14)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:21](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L21)
+[lib/services/preferences.service.ts:21](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L21)
 
 ## Methods
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:72](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L72)
+[lib/services/preferences.service.ts:72](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L72)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:95](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L95)
+[lib/services/preferences.service.ts:95](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L95)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:62](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L62)
+[lib/services/preferences.service.ts:62](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L62)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:41](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L41)
+[lib/services/preferences.service.ts:41](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L41)
 
 ___
 
@@ -232,7 +232,7 @@ OnDestroy.ngOnDestroy
 
 #### Defined in
 
-[lib/services/preferences.service.ts:31](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L31)
+[lib/services/preferences.service.ts:31](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L31)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:113](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L113)
+[lib/services/preferences.service.ts:113](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L113)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:51](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L51)
+[lib/services/preferences.service.ts:51](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L51)
 
 ___
 
@@ -280,7 +280,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:100](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L100)
+[lib/services/preferences.service.ts:100](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L100)
 
 ___
 
@@ -300,7 +300,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:109](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L109)
+[lib/services/preferences.service.ts:109](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L109)
 
 ___
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:103](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L103)
+[lib/services/preferences.service.ts:103](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L103)
 
 ___
 
@@ -340,7 +340,7 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:106](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L106)
+[lib/services/preferences.service.ts:106](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L106)
 
 ___
 
@@ -360,4 +360,4 @@ ___
 
 #### Defined in
 
-[lib/services/preferences.service.ts:37](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L37)
+[lib/services/preferences.service.ts:37](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/preferences.service.ts#L37)

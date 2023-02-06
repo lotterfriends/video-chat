@@ -57,7 +57,7 @@ a lobby with device testing.
 
 #### Defined in
 
-[lib/services/device.service.ts:24](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L24)
+[lib/services/device.service.ts:24](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L24)
 
 ## Properties
 
@@ -67,7 +67,7 @@ a lobby with device testing.
 
 #### Defined in
 
-[lib/services/device.service.ts:21](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L21)
+[lib/services/device.service.ts:21](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L21)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:22](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L22)
+[lib/services/device.service.ts:22](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L22)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:37](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L37)
+[lib/services/device.service.ts:37](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L37)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:19](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L19)
+[lib/services/device.service.ts:19](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L19)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:20](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L20)
+[lib/services/device.service.ts:20](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L20)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:18](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L18)
+[lib/services/device.service.ts:18](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L18)
 
 ## Methods
 
@@ -140,7 +140,7 @@ Change selected device wit a deviceId and a device type.
 
 #### Defined in
 
-[lib/services/device.service.ts:79](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L79)
+[lib/services/device.service.ts:79](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L79)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:46](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L46)
+[lib/services/device.service.ts:46](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L46)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:235](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L235)
+[lib/services/device.service.ts:235](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L235)
 
 ___
 
@@ -200,7 +200,7 @@ Promise that resolves to media Devices as array
 
 #### Defined in
 
-[lib/services/device.service.ts:69](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L69)
+[lib/services/device.service.ts:69](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L69)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:57](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L57)
+[lib/services/device.service.ts:57](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L57)
 
 ___
 
@@ -245,7 +245,7 @@ a list of devices grouped by `DeviceType`
 
 #### Defined in
 
-[lib/services/device.service.ts:181](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L181)
+[lib/services/device.service.ts:181](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L181)
 
 ___
 
@@ -270,7 +270,7 @@ Check the given device, if it's selected.
 
 #### Defined in
 
-[lib/services/device.service.ts:157](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L157)
+[lib/services/device.service.ts:157](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L157)
 
 ___
 
@@ -288,13 +288,13 @@ OnDestroy.ngOnDestroy
 
 #### Defined in
 
-[lib/services/device.service.ts:33](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L33)
+[lib/services/device.service.ts:33](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L33)
 
 ___
 
 ### setDeviceAndResolve
 
-▸ **setDeviceAndResolve**(`stream`, `resolve`): `void`
+▸ `Private` **setDeviceAndResolve**(`stream`, `resolve`): `void`
 
 #### Parameters
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:281](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L281)
+[lib/services/device.service.ts:281](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L281)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:246](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L246)
+[lib/services/device.service.ts:246](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L246)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:273](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L273)
+[lib/services/device.service.ts:273](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L273)
 
 ___
 
@@ -358,7 +358,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:265](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L265)
+[lib/services/device.service.ts:265](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L265)
 
 ___
 
@@ -372,7 +372,7 @@ ___
 
 #### Defined in
 
-[lib/services/device.service.ts:257](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L257)
+[lib/services/device.service.ts:257](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L257)
 
 ___
 
@@ -398,4 +398,4 @@ Promise that resilve to a stream matching the constraint
 
 #### Defined in
 
-[lib/services/device.service.ts:219](https://github.com/lotterfriends/video-chat/blob/826fb3b/libs/ngx-webrtc/src/lib/services/device.service.ts#L219)
+[lib/services/device.service.ts:219](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/services/device.service.ts#L219)
