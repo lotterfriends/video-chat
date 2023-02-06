@@ -29,6 +29,32 @@ npx nx serve demo-video-chat-client # start client
 
 Open http://localhost:4400/ in Browser.
 
+## Video emulation
+
+https://filesamples.com/formats/mjpeg
+
+```
+google-chrome --use-fake-device-for-media-stream --use-file-for-fake-video-capture=$PWD/tmp/small.mjpeg #linux
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --use-fake-device-for-media-stream --use-file-for-fake-video-capture=Movies/small.mjpg # mac
+```
+
+## Dev/Debug Tools
+### Chrome
+
+```
+chrome://webrtc-logs/
+chrome://webrtc-internals/
+```
+https://chrome.google.com/webstore/detail/webrtc-network-limiter/npeicpdbkakmehahjeeohfdhnlpdklia
+
+
+### Firefox
+
+```
+about:webrtc
+```
+Enforce Stun/Turn server in firefox: https://stackoverflow.com/questions/34030188/easy-way-to-test-turn-server/39490790#39490790
+
 
 # License
 Copyright (c) 2021 André Tarnowsky
