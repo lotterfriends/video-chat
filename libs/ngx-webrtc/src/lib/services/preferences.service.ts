@@ -16,7 +16,7 @@ export class PreferencesService implements OnDestroy {
   private readonly VIDEO_INPUT_KEY: string = this.storageKey('preferred-video-input-device');
   private readonly AUDIO_INPUT_KEY: string = this.storageKey('preferred-audio-input-device');
   private readonly AUDIO_INPUT_VOLUME_KEY: string = this.storageKey('preferred-audio-input-device');
-  private readonly AUDIO_OUTPUT_KEY: string = this.storageKey('preferred-audio-input-device');
+  private readonly AUDIO_OUTPUT_KEY: string = this.storageKey('preferred-audio-output-device');
 
   private subs: Subscription[] = [];
 
