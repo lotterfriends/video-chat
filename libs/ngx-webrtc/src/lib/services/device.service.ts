@@ -142,6 +142,7 @@ export class DeviceService implements OnDestroy {
         });
       }
       if (kind === DeviceType.AudioOutput) {
+        this.preferencesService.setPreferredAudioOutputDevice(deviceId);
         this.streamService.setAudioOutput(deviceId);
         resolve();
       }
