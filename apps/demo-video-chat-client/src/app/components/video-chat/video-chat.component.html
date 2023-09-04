@@ -1,15 +1,17 @@
 
-<div class="video-chat-remote remote-peer-{{pclients.length}}" [class.remote-peer-x]="pclients.length">
+<div class="video-chat-remote remote-peer-{{getConnectedUserCount()}}" [class.remote-peer-x]="hasConnectedUsers()">
   <ngx-webrtc-conference-grid-holder class="video-chat-remote-peer-holder view-mode-{{viewMode}}" #holder>
     <ng-container #remotePeerHolder></ng-container>
   </ngx-webrtc-conference-grid-holder>
 </div>
 
-<div class="video-chat-self-holder">
-  <div [class.hide]="localVideoEnabled" class="no-video" *ngIf="self">
-    <ngx-webrtc-avatar  [size]="pclients.length ? 'small' : 'large'" [name]="self"></ngx-webrtc-avatar>
+<ng-container *ngIf="{localVideoEnabled: localVideoEnabled$ | async} as localVideoEnabledState">
+  <div class="video-chat-self-holder">
+    <div [class.hide]="localVideoEnabledState.localVideoEnabled" class="no-video" *ngIf="self">
+      <ngx-webrtc-avatar  [size]="hasConnectedUsers() ? 'small' : 'large'" [name]="self"></ngx-webrtc-avatar>
+    </div>
+    <video [class.hide]="!localVideoEnabledState.localVideoEnabled" id="localStreamNode" class="mirror" playsinline muted #localStreamNode></video>
   </div>
-  <video [class.hide]="!localVideoEnabled" id="localStreamNode" class="mirror" playsinline muted #localStreamNode></video>
-</div>
+</ng-container>
 <ng-content></ng-content>
 <ngx-webrtc-video-chat-settings-dialog></ngx-webrtc-video-chat-settings-dialog>
