@@ -98,7 +98,10 @@ export class PeerConnectionClient {
     this.log(this.settings.peerConnectionConfig);
     this.connection = new RTCPeerConnection(this.settings.peerConnectionConfig);
     if (this.settings.debug) {
-      (window as any).rtcpc = this.connection;
+      if (!Array.isArray((window as any)['_webRTCConnections'])) {
+        (window as any)['_webRTCConnections'] = [];
+      }
+      (window as any)['_webRTCConnections'].push(this.connection);
     }
     this.connection.onicecandidate = this.onIceCandidate.bind(this);
     this.connection.ontrack = this.onRemoteTrackAdded.bind(this);
