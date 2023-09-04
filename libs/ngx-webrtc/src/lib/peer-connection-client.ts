@@ -416,7 +416,11 @@ export class PeerConnectionClient {
 
   private filterIceCandidate(candidateObj: RTCIceCandidate): boolean {
     // this.log('filterIceCandidate', candidateObj);
-    const candidateStr = candidateObj.candidate;
+    const candidateStr = candidateObj.candidate.trim();
+
+    if (!candidateStr.length) {
+      return false;
+    }
 
     // Always remove TCP candidates. Not needed in this context.
     if (candidateStr.indexOf('tcp') !== -1) {
