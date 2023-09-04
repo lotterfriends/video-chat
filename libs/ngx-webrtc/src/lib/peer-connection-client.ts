@@ -346,6 +346,18 @@ export class PeerConnectionClient {
   }
 
   /**
+   * add a `MediaStreamTrack` to the connection
+   * @param track `MediaStreamTrack` or `StreamType` to be added to the connection.
+   * @param init `RTCRtpTransceiverInit`
+   */
+  public addTransceiver(track: MediaStreamTrack | StreamType, init?: RTCRtpTransceiverInit): void {
+    this.log('addTransceiver', track);
+    if (this.connection) {
+      this.connection.addTransceiver(track, init);
+    }
+  }
+
+  /**
    * replace current `MediaStreamTrack` with new from parameter
    * @param track new `MediaStreamTrack`
    */
