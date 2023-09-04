@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[lib/sdp-utils.ts:5](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/sdp-utils.ts#L5)
+[lib/sdp-utils.ts:5](https://github.com/lotterfriends/video-chat/blob/c0a07ad/libs/ngx-webrtc/src/lib/sdp-utils.ts#L5)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[lib/sdp-utils.ts:4](https://github.com/lotterfriends/video-chat/blob/c9c150f/libs/ngx-webrtc/src/lib/sdp-utils.ts#L4)
+[lib/sdp-utils.ts:4](https://github.com/lotterfriends/video-chat/blob/c0a07ad/libs/ngx-webrtc/src/lib/sdp-utils.ts#L4)
